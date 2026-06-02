@@ -1,0 +1,48 @@
+<div class="buildings-container">
+  
+  <header class="buildings-header">
+    <div class="header-left">
+      <button class="back-btn" (click)="volverAlMapa()">⬅️Volver</button>
+      <h1>Edificios del Campus</h1>
+    </div>
+    <span class="badge">UNISTMO</span>
+  </header>
+
+  <main class="buildings-content">
+    <p class="section-title">Selecciona un edificio para ver sus laboratorios y cubículos:</p>
+    
+    <div class="buildings-grid">
+      
+      <div class="building-card">
+        <div class="card-icon">🏢</div>
+        <div class="card-info">
+          <h3>Edificio A</h3>
+          <p>Planta Baja: Centro de Cómputo</p>
+          <p>Planta Alta: Jefaturas de Carrera</p>
+          <button class="view-details-btn" (click)="verDetalle('Edificio A')">Explorar interior</button>
+        </div>
+      </div>
+
+      <div class="building-card">
+        <div class="card-icon">🔬</div>
+        <div class="card-info">
+          <h3>Edificio B (Laboratorios)</h3>
+          <p>Planta Baja: Laboratorio de Electrónica</p>
+          <p>Planta Alta: Laboratorio de Física</p>
+          <button class="view-details-btn" (click)="verDetalle('Edificio B')">Explorar interior</button>
+        </div>
+      </div>
+
+      <div class="building-card">
+        <div class="card-icon">📚</div>
+        <div class="card-info">
+          <h3>Edificio C (Aulas)</h3>
+          <p>Salones del 101 al 208</p>
+          <p>Área común de estudio</p>
+          <button class="view-details-btn" (click)="verDetalle('Edificio C')">Explorar interior</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

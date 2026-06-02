@@ -1,0 +1,133 @@
+/* CONTENEDOR FLUIDO EN PANTALLA COMPLETA */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* TARJETA DE LOGIN SÓLIDA */
+.login-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  padding: 35px;
+  box-sizing: border-box;
+  border: 1px solid #eef2f5;
+}
+
+/* ENCABEZADO */
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo-title {
+  color: #003366; /* Azul Institucional */
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.logo-subtitle {
+  color: #778899;
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+/* CUERPO DEL FORMULARIO */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  color: #333333;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* GRUPOS DE INPUTS */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  color: #445566;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ccd7e0;
+  border-radius: 8px;
+  background-color: #fbfcfd;
+  color: #333333;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #003366;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.15);
+}
+
+/* BOTÓN DE ACCESO */
+.submit-btn {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 13px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #002244;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* MENSAJE DE ERROR */
+.alert-error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  border-left: 4px solid #e53935;
+  line-height: 1.4;
+}
+
+/* PIE DE PÁGINA DE LA TARJETA */
+.login-footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #a0b0c0;
+}

@@ -1,0 +1,117 @@
+.buildings-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.buildings-header {
+  background-color: #003366;
+  color: white;
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.badge {
+  background-color: #ff9900;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buildings-content {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.section-title {
+  color: #445566;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* El truco responsivo: las tarjetas se acomodan solas según el ancho de pantalla */
+.buildings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.building-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.building-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  font-size: 32px;
+  background-color: #f0f4f8;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-info h3 {
+  margin: 0 0 8px 0;
+  color: #003366;
+  font-size: 18px;
+}
+
+.card-info p {
+  margin: 4px 0;
+  color: #667788;
+  font-size: 14px;
+}
+
+.view-details-btn {
+  margin-top: 12px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.view-details-btn:hover {
+  background-color: #002244;
+}

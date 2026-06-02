@@ -1,0 +1,115 @@
+.general{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: rgb(184, 216, 249);
+}
+
+/* Contenedor Base (Estilo Móvil por defecto) */
+
+.bienvenida-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: rgb(184, 216, 249);
+  gap: 30px;
+}
+
+/* Círculo del Logo */
+.circulo-logo {
+  width: 180px;
+  height: 180px;
+  border: 4px solid #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Textos */
+.texto-seccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.txt-bienvenido {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.txt-subtitulo {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+/* Botón Entrar Rectangular de tu Boceto */
+.btn-entrar {
+  width: 160px;
+  padding: 12px;
+  background-color: transparent;
+  color: #000;
+  border: 3px solid #085beb;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.btn-entrar:hover {
+  background-color: #085beb;
+  color: #fff;
+}
+
+/* =========================================================================
+   Vista de Escritorio (Aplica cuando la pantalla es grande como tu dibujo)
+   ========================================================================= */
+@media (min-width: 768px) {
+  .bienvenida-container {
+    flex-direction: row; /* Pone el logo a la izquierda y el texto a la derecha */
+    justify-content: center;
+    gap: 80px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .circulo-logo {
+    width: 250px;
+    height: 250px;
+    font-size: 32px;
+  }
+
+  .texto-seccion {
+    align-items: flex-start; /* Alinea los textos a la izquierda en PC */
+    gap: 15px;
+  }
+
+  .txt-bienvenido {
+    font-size: 42px;
+  }
+
+  .txt-subtitulo {
+    font-size: 20px;
+  }
+}

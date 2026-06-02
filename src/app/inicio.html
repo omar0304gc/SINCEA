@@ -1,0 +1,26 @@
+<div class="inicio-container">
+
+  <main class="menu-grid">
+    
+    <button class="menu-card" (click)="navegarA('mapa')">
+      <div class="card-icon">📍</div>
+      <span class="card-text">VER MAPA DE LA ESCUELA</span>
+    </button>
+
+    <button class="menu-card" (click)="navegarA('profesores')">
+      <div class="card-icon">👥</div>
+      <span class="card-text">APARTADOR DE PROFESORES</span>
+    </button>
+
+    <button class="menu-card" (click)="navegarA('edificios')">
+      <div class="card-icon">🏢</div>
+      <span class="card-text">VER LOS EDIFICIOS</span>
+    </button>
+
+  </main>
+
+  <footer class="inicio-footer">
+    <button class="btn-salir-sistema" (click)="cerrarSesion()">CERRAR SESIÓN</button>
+  </footer>
+
+</div>
