@@ -1,0 +1,40 @@
+<main class="home">
+
+    <div class="home__titulo">
+        <h2>SINCEA </h2><hr>
+    </div>
+  <section class="home__bienvenida">
+    
+    <p>Sistema de Navegación por Croquis para Espacios Académicos. 
+       Encuentra tus aulas, laboratorios y oficinas de manera rápida.</p>
+  </section>
+
+  <div class="home__titulo">
+    <h2>APARTADOS</h2> <hr>
+  </div>
+  
+  <section class="home__opciones">
+
+    <div class="home__tarjeta" (click)="irA('/mapa')">
+      <img src="images/home_mapa.jpg" alt="imagen_entrada_UNISTMO">
+      <app-icono nombre="mapa" ancho="40px" alto="40px" />
+      <span>MAPA</span>
+    </div>
+
+    <div class="home__tarjeta" (click)="irA('/profesores')">
+        <img src="images/home_profesores.JPG" alt="imagen_profesores_UNISTMO">
+      <app-icono nombre="perfil" ancho="40px" alto="40px" />
+      <span>PROFESORES</span>
+    </div>
+
+    <div class="home__tarjeta" (click)="irA('/edificios')">
+        <img src="images/home_edificio.png" alt="imagen_edificio_UNISTMO">
+      <app-icono nombre="edificio" ancho="40px" alto="40px" />
+      <span>EDIFICIOS</span>
+    </div>
+
+  </section>
+
+  
+
+</main>

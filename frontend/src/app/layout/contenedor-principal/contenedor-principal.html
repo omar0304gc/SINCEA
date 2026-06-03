@@ -1,0 +1,10 @@
+<app-barra-navegacion (abrirMenu)="abrirMenu()" />
+
+<app-menu-lateral 
+  [abierto]="menuAbierto"
+  [rol]="rol"
+  (cerrar)="cerrarMenu()" />
+
+<main class="contenido">
+  <router-outlet />
+</main>

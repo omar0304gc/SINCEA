@@ -1,0 +1,60 @@
+<main class="login">
+    <div class="login__contenido">
+
+        <div class="login__bienvenida">
+            <section>
+                <h1>¡BIENVENIO/A!</h1>
+                <span>
+                    ¡Te damos la bienvenida al Sistema de 
+                    Navegación por Croquis!  
+                </span>
+                <p >
+                    
+                    Tu guía digital dentro del campus. Inicia sesión 
+                    para ubicar tus aulas, laboratorios y oficinas 
+                    administrativas de manera rápida y sencilla. 
+                    Diseñado para que tu única preocupación sea 
+                    aprender, no perderte.
+                </p>
+                <hr>
+                <p >
+                    Por favor, ingresa tus credenciales 
+                    institucionales para continuar.
+                </p>
+            </section>
+            
+        </div>
+
+        <div class="login__formulario">
+            <div class="login__tema">
+                <app-boton-tema />
+                <h3>Cambiar Tema</h3>
+            </div>
+            
+            <div class="login__encabezado">
+                <h1 class="login__titulo">
+                    INICIAR SESION
+                </h1>
+                <p>Rellene los sigientes campos para acceder, 
+                    si eres alumno usa tu matricula para usuario
+                    y tu CURP para contraseña.
+                </p>
+            </div>
+
+            <div class="login__campo">
+                <label for="curp" class="login__label">Usuario</label>
+                <input type="text" name="campo_curp" required placeholder=" " id="curp" [(ngModel)]="curp">
+            </div>
+            <div class="login__campo"> 
+                <label for="contrasena" class="login__label">Contraseña</label>
+                <input type="password" name="campo_matricula" required placeholder=" " id="contrasena" [(ngModel)]="contrasena">
+            </div>
+
+            <button class="login__btn" (click)="iniciarSesion()">
+                Iniciar Sesion
+            </button>
+        </div>
+
+    </div>
+</main>
+

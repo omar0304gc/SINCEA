@@ -1,0 +1,131 @@
+
+
+
+.bienvenida{
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-fondo);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+
+  &__contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    z-index: 4; 
+  }
+
+  &__logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: var(--color-titulo);
+    height: 55%;
+    border-radius: 0 0 50% 50%;
+    color: var(--color-fondo);
+    app-icono{
+      width: 200px ;
+      height: 200px ;
+      
+    }
+
+  }
+  p{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  &__entrar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    gap: 1rem;
+    p{
+      font-size: 25px;
+      opacity: 0.8;
+    }
+  }
+
+  &__boton{
+    background-color: transparent;
+    color: var(--color-trazo);
+    border: solid 3px var(--color-trazo);
+    font-family: 'Syne', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: backgroun-color .75s ease, color .75s ease;
+    &:hover{
+      background-color: var(--color-trazo);
+      color: var(--color-fondo);
+    }
+  }
+}
+
+.bienvenida::before{
+  content: '';
+  position: fixed;
+  width: 170%;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: solid 10px var(--color-trazo);
+  border-radius: 50%;
+  z-index: 1;
+  top: -275%;
+}
+.bienvenida::after{
+  content: '';
+  position: fixed;
+  width: 150%;
+  aspect-ratio: 1/1;
+  background-color: var(--color-trazo);
+  border-radius: 50%;
+  z-index: 2;
+  top: -235%;
+}
+
+@media (min-width: 1024px){
+  .bienvenida{
+    &__contenido{
+      justify-content: start;
+    }
+    &__logo{
+      width: 100vw;
+      padding: 20px;
+      gap: 0;
+      p{
+        width: 35%;
+      }
+      app-icono{
+        width: 320px;
+        height: 320px;
+      }
+    }
+    &__entrar{
+      padding: 5px;
+      gap: 5px;
+      p{
+        opacity: 1;
+      }
+    }
+    &__titulo{
+      color: var(--color-fondo);
+    }
+    &__boton{
+      background-color: var(--color-fondo);
+      border-color: var(--color-fondo);
+    }
+  }
+}

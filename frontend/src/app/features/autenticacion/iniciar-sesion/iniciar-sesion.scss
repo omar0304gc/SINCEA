@@ -1,0 +1,151 @@
+
+.login{
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-trazo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__tema{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    padding: 10px 20px;
+    gap: 15px;
+    border-bottom: solid 3px var(--color-titulo);
+  }
+
+  &__contenido{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    display: flex;
+  }
+
+  &__bienvenida{
+    display: none;
+  }
+
+  &__formulario{
+    background-color: var(--color-fondo);
+    height: 100%;
+    border-radius: 30px;
+    padding: 5rem 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  &__encabezado{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p{
+        color: var(--color-texto);
+        font-size: 17px;
+        text-align: center;
+    }
+  }
+
+&__campo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+  margin-top: 1rem;
+
+  input {
+    width: 100%;
+    padding: .75rem 10px;
+    background-color: transparent;
+    border: solid 3px var(--color-texto);
+    color: var(--color-trazo);
+    font-size: 25px;
+    border-bottom: solid 3px var(--color-texto);
+    border-radius: 15px;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-radius: 0;
+      border: none;
+      border-bottom: solid 3px var(--color-trazo);
+    }
+  }
+
+  .login__label {
+    position: absolute;
+    left: 10px;
+    top: -15px;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-texto);
+    pointer-events: none;
+  }
+}
+
+
+  &__btn{
+    padding: 10px 25px;
+    background-color: var(--color-trazo);
+    color: var(--color-texto-boton);
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: solid 3px var(--color-trazo);
+    cursor: pointer;
+    transition: background-color .5s ease, color .5s ease;
+  }
+  &__btn:hover{
+    background-color: var(--color-fondo);
+    color: var(--color-trazo);
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 1024px) {
+    .login{
+        &__bienvenida{
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            
+        }
+        &__bienvenida section{
+            display: flex;
+            flex-direction: column;
+            margin: 40% 30% 40% 10%;
+            gap: 15px;
+            h1{
+                color: var(--color-principal);
+                font-size: 50px;
+            }
+            hr{
+                border: solid 3px var(--color-terciario);
+            }
+            span{
+                color: var(--color-terciario);
+                font-weight: 600;
+                font-size: 22px;
+            }
+            p{
+                color: var(--color-principal);
+                opacity: 0.6;
+                font-size: 20px;
+            }
+        }
+        &__formulario{
+            width: 35%;
+        }
+    }
+    
+}

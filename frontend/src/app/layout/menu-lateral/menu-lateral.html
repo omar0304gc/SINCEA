@@ -1,0 +1,59 @@
+<!-- Overlay oscuro al fondo -->
+<div 
+  class="overlay" 
+  [class.overlay--visible]="abierto"
+  (click)="onCerrar()">
+</div>
+
+<!-- Sidebar -->
+<aside class="sidebar" [class.sidebar--abierto]="abierto">
+
+  <div class="sidebar__encabezado">
+    <div class="sidebar__marca">
+      <app-icono nombre="logo" ancho="36px" alto="36px" />
+      <span>SINCEA</span>
+    </div>
+    <button class="sidebar__cerrar" (click)="onCerrar()">
+      <app-icono nombre="cerrar" ancho="24px" alto="24px" />
+    </button>
+  </div>
+
+  <nav class="sidebar__nav">
+    <a routerLink="/inicio" routerLinkActive="sidebar__link--activo" 
+       class="sidebar__link" (click)="onCerrar()">
+      <app-icono nombre="inicio" ancho="22px" alto="22px" />
+      <span>Inicio</span>
+    </a>
+    <a routerLink="/mapa" routerLinkActive="sidebar__link--activo" 
+       class="sidebar__link" (click)="onCerrar()">
+      <app-icono nombre="mapa" ancho="22px" alto="22px" />
+      <span>Mapa</span>
+    </a>
+    <a routerLink="/profesores" routerLinkActive="sidebar__link--activo" 
+       class="sidebar__link" (click)="onCerrar()">
+      <app-icono nombre="perfil" ancho="22px" alto="22px" />
+      <span>Profesores</span>
+    </a>
+    <a routerLink="/edificios" routerLinkActive="sidebar__link--activo" 
+       class="sidebar__link" (click)="onCerrar()">
+      <app-icono nombre="edificio" ancho="22px" alto="22px" />
+      <span>Edificios</span>
+    </a>
+
+    <!-- Solo visible para profesores -->
+    <a *ngIf="rol === 'profesor' || rol === 'admin'"
+       routerLink="/mi-perfil" routerLinkActive="sidebar__link--activo"
+       class="sidebar__link" (click)="onCerrar()">
+      <app-icono nombre="perfil" ancho="22px" alto="22px" />
+      <span>Mi Perfil</span>
+    </a>
+  </nav>
+
+  <div class="sidebar__footer">
+    <button class="sidebar__cerrar-sesion" (click)="cerrarSesion()">
+      <app-icono nombre="cerrar" ancho="20px" alto="20px" />
+      <span>Cerrar Sesión</span>
+    </button>
+  </div>
+
+</aside>

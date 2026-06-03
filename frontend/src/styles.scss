@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@use 'sass:map';
+
+// ─── TOKENS DE COLOR ───────────────────────────────────────────
+:root {
+  // Elementos — Modo Claro
+  --color-fondo:        #fffffe;
+  --color-titulo:       #094067;
+  --color-texto:        #5f6c7b;
+  --color-acento:       #3da9fc;
+  --color-texto-boton:  #fffffe;
+
+  // Ilustración — Modo Claro
+  --color-trazo:        #094067;
+  --color-principal:    #fffffe;
+  --color-secundario:   #90b4ce;
+  --color-resaltado:    #3da9fc;
+  --color-terciario:    #ef4565;
+
+  //Gradiente - Modo Claro
+  --color-gradiente1: rgba(255, 255, 255, 0.08);
+  --color-gradiente2: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="oscuro"] {
+  // Elementos — Modo Oscuro
+  --color-fondo:        #16161a;
+  --color-titulo:       #fffffe;
+  --color-texto:        #94a1b2;
+  --color-acento:       #7f5af0;
+  --color-texto-boton:  #fffffe;
+
+  // Ilustración — Modo Oscuro
+  --color-trazo:        #010101;
+  --color-principal:    #fffffe;
+  --color-secundario:   #72757e;
+  --color-resaltado:    #7f5af0;
+  --color-terciario:    #2cb67d;
+
+  //Gradiente - Modo Oscuro
+  --color-gradiente1: rgba(255, 255, 255, 0.03);
+  --color-gradiente2: rgba(255, 255, 255, 0.07);
+}
+
+// ─── RESET BASE ────────────────────────────────────────────────
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+  color: var(--color-titulo);
+}
+
+// ─── UTILIDADES GLOBALES ───────────────────────────────────────
+.texto-acento    { color: var(--color-acento); }
+.texto-titulo    { color: var(--color-titulo); }
+.fondo-acento    { background-color: var(--color-acento); }
