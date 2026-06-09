@@ -1,19 +1,18 @@
 <main class="home">
 
-    <div class="home__titulo">
-        <h2>SINCEA </h2><hr>
-    </div>
-  <section class="home__bienvenida">
     
+  <section class="home__bienvenida">
+    <h1>SINCEA</h1>
     <p>Sistema de Navegación por Croquis para Espacios Académicos. 
        Encuentra tus aulas, laboratorios y oficinas de manera rápida.</p>
+       
+          
+       
   </section>
 
-  <div class="home__titulo">
-    <h2>APARTADOS</h2> <hr>
-  </div>
-  
-  <section class="home__opciones">
+
+  <h2>APARTADOS</h2>
+  <section #opciones class="home__opciones" >
 
     <div class="home__tarjeta" (click)="irA('/mapa')">
       <img src="images/home_mapa.jpg" alt="imagen_entrada_UNISTMO">
@@ -35,6 +34,101 @@
 
   </section>
 
-  
+  <section class="home__links">
+    <h2>OTROS LINKS</h2>
+    <p>
+      Descubre otros sitios relacionados con la carrera y el campus.
+    </p>
+    <div class="home__links_contenedor">
+      <a href="https://www.unistmo.edu.mx/web/" target="_blank">UNIVERSIDAD</a>
+      <a href="https://dns2.unistmo.edu.mx/~computacion/alumnos.html" target="_blank">CARRERA</a>
+      <a href="https://www.facebook.com/ingcomp.unistmo" target="_blank">FACEBOOK</a>
+    </div>
+  </section>
+
+  <section class="home__tecnologias">
+    <h2>TECNOLOGIAS USADAS</h2>
+    <div class="home__tecnologias_apartados">
+
+      <div class="home__tecnologias_fb">
+        <h3>HERRAMIENTAS</h3>
+        <section class="home__tecnologias_usadas">
+          <span>
+            <app-icono nombre="vscode" ancho="35px" alto="35px" />
+            Visual Studio
+          </span>
+          <span>
+            <app-icono nombre="github" ancho="35px" alto="35px" />
+            GitHub
+          </span>
+          <span>
+            <app-icono nombre="git" ancho="35px" alto="35px" />
+            Git
+          </span>
+        </section>
+      </div>
+
+      <div class="home__tecnologias_fb">
+        <h3>FRONTEND</h3>
+        <section class="home__tecnologias_usadas">
+          <span>
+            <app-icono nombre="angular" ancho="35px" alto="35px" />
+            Angular
+          </span>
+          <span>
+            <app-icono nombre="scss" ancho="35px" alto="35px" />
+            SCSS
+          </span>
+          <span>
+            <app-icono nombre="typescript" ancho="35px" alto="35px" />
+            TypeScript
+          </span>
+        </section>
+      </div>
+
+      <div class="home__tecnologias_fb">
+        <h3>BACKEND</h3>
+        <section class="home__tecnologias_usadas">
+          <span>
+            <app-icono nombre="python" ancho="35px" alto="35px" />
+            Python
+          </span>
+        </section>
+      </div>
+
+    </div>
+
+    <hr>
+  </section>
+
+  <section class="home__autores">
+    <h2>AUTORES</h2>
+    <p>Equipo de GeoCode</p>
+
+    <div class="home__autores_tarjetas">
+
+      <section id="omar" class="home__autores_tarjeta">
+        <img src="images/foto_perfil_predeterminado.jpg" alt="foto de perfil Omar Antonio">
+        <h3> García Cortés Omar Antonio </h3>
+      </section>
+
+      <section id="yeshua" class="home__autores_tarjeta">
+        <img src="images/foto_perfil_predeterminado.jpg" alt="foto de perfil Yeshua">
+        <h3> Cristóbal Blas Yeshua </h3>
+      </section>
+
+      <section id="marco" class="home__autores_tarjeta">
+        <img src="images/foto_perfil_predeterminado.jpg" alt="foto de perfil Marco Antonio">
+        <h3> Valladares Guerrero Marco Antonio </h3>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="home__piepagina">
+    <p>
+      GeoCode · Proyecto SINCEA · Grupo 404
+    </p>
+  </section>
 
 </main>

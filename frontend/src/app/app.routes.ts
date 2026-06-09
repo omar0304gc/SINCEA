@@ -45,6 +45,12 @@ export const routes: Routes = [
           .then(m => m.MapaCroquis)
       },
       {
+        path: 'mapa-google',
+        loadComponent: () =>
+          import('./features/mapa/mapa-google/mapa-google')
+          .then(m => m.MapaGoogle)
+      },
+      {
         path: 'profesores',
         loadComponent: () =>
           import('./features/profesores/lista-profesores/lista-profesores')

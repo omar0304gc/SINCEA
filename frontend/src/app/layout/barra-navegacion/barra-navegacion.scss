@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: auto;
   height: 80px;
   background-color: transparent;
   display: flex;
@@ -20,8 +20,9 @@
     background-color: var(--color-titulo);
     width: 100%;
     height: 60px;
+    gap: 1rem;
     border-radius: 50px;
-    box-shadow: 0 3px 8px var(--color-secundario);
+    box-shadow: 3px 3px 0 var(--color-secundario);
   }
 
   &__acciones {

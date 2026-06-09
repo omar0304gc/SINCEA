@@ -1,0 +1,43 @@
+.lista-edificios {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 1rem;
+    min-height: 100%;
+    gap: 1rem;
+
+  hr{
+    border-color: var(--color-resaltado);
+    margin-bottom: 1rem;
+  }
+
+  &__encabezado {
+    margin-bottom: 1.5rem;
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      color: var(--color-titulo);
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--color-texto);
+    }
+  }
+
+  &__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

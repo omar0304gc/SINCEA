@@ -1,1 +1,18 @@
-<p>mapa-google works!</p>
+<section class="streetview">
+
+  <div class="streetview__contenedor">
+    <iframe
+      class="streetview__iframe"
+      src="https://www.google.com/maps/embed?pb=!4v1780973590729!6m8!1m7!1s4o6EPgqkFRbYdPQPcHO-7A!2m2!1d16.28864895076398!2d-95.24089762967955!3f183.7027332768262!4f-8.977895955500586!5f0.7820865974627469"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <button class="streetview__btn-volver" (click)="irAlCroquis()">
+    <app-icono nombre="atras" ancho="20px" alto="20px" />
+    <span>Croquis</span>
+  </button>
+
+</section>

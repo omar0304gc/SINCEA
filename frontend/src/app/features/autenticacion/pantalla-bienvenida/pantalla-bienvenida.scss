@@ -74,27 +74,7 @@
   }
 }
 
-.bienvenida::before{
-  content: '';
-  position: fixed;
-  width: 170%;
-  aspect-ratio: 1/1;
-  background-color: transparent;
-  border: solid 10px var(--color-trazo);
-  border-radius: 50%;
-  z-index: 1;
-  top: -275%;
-}
-.bienvenida::after{
-  content: '';
-  position: fixed;
-  width: 150%;
-  aspect-ratio: 1/1;
-  background-color: var(--color-trazo);
-  border-radius: 50%;
-  z-index: 2;
-  top: -235%;
-}
+
 
 @media (min-width: 1024px){
   .bienvenida{
@@ -122,10 +102,6 @@
     }
     &__titulo{
       color: var(--color-fondo);
-    }
-    &__boton{
-      background-color: var(--color-fondo);
-      border-color: var(--color-fondo);
     }
   }
 }

@@ -1,1 +1,16 @@
-<p>lista-edificios works!</p>
+<main class="lista-edificios">
+
+  <div class="lista-edificios__encabezado">
+    <h1>Edificios</h1>
+    <p>Selecciona un edificio para ver más información</p>
+  </div>
+
+  <hr>
+
+  <div class="lista-edificios__lista">
+    <app-tarjeta-edificio
+      *ngFor="let edificio of edificios"
+      [edificio]="edificio" />
+  </div>
+
+</main>

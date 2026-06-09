@@ -1,1 +1,17 @@
-<p>tarjeta-profesor works!</p>
+<div class="tarjeta" (click)="verDetalle()">
+  <div class="tarjeta__foto">
+    <img 
+      [src]="profesor.foto || 'images/foto_perfil_predeterminado.jpg'" 
+      [alt]="profesor.nombre"
+      class="img-circular" />
+  </div>
+  <div class="tarjeta__info">
+    <h3 class="tarjeta__nombre">{{ profesor.nombre }}</h3>
+    <p class="tarjeta__departamento">{{ profesor.departamento }}</p>
+    <p class="tarjeta__cubiculo">
+      <app-icono nombre="edificio" ancho="14px" alto="14px" />
+      <span>{{ profesor.cubiculo }}</span>
+    </p>
+  </div>
+  <app-icono nombre="atras" clase="tarjeta__flecha" ancho="20px" alto="20px" />
+</div>

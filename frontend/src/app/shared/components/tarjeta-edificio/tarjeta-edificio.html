@@ -1,1 +1,10 @@
-<p>tarjeta-edificio works!</p>
+<div class="tarjeta-edificio" (click)="verDetalle()">
+  <div class="tarjeta-edificio__imagen">
+    <img 
+      [src]="edificio.imagen || 'images/home_edificio.png'"
+      [alt]="edificio.nombre" />
+  </div>
+  <div class="tarjeta-edificio__info">
+    <h3>{{ edificio.nombre }}</h3>
+  </div>
+</div>

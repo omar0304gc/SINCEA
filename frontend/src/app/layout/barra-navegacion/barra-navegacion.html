@@ -2,24 +2,27 @@
   <div class="navbar__contenido">
 
     <div class="navbar__acciones">
-      <app-boton-tema />
+      
       <button class="navbar__hamburguesa" (click)="onAbrirMenu()">
         <app-icono nombre="menu" ancho="28px" alto="28px" />
       </button>
+      <div class="navbar__marca">
+        <app-icono nombre="logo" ancho="40px" alto="40px" />
+        <span class="navbar__titulo">SINCEA</span>
+        
+      </div>
     </div>
-  
-<!--
-  <nav class="navbar__links">
-    <a routerLink="/mapa" routerLinkActive="navbar__link--activo" class="navbar__link">Mapa</a>
-    <a routerLink="/profesores" routerLinkActive="navbar__link--activo" class="navbar__link">Profesores</a>
-    <a routerLink="/edificios" routerLinkActive="navbar__link--activo" class="navbar__link">Edificios</a>
-  </nav>
--->
-  <div class="navbar__marca">
-    <app-icono nombre="logo" ancho="40px" alto="40px" />
-    <span class="navbar__titulo">SINCEA</span>
-  </div>
+      
 
+      <!--
+        <nav class="navbar__links">
+          <a routerLink="/mapa" routerLinkActive="navbar__link--activo" class="navbar__link">Mapa</a>
+          <a routerLink="/profesores" routerLinkActive="navbar__link--activo" class="navbar__link">Profesores</a>
+          <a routerLink="/edificios" routerLinkActive="navbar__link--activo" class="navbar__link">Edificios</a>
+        </nav>
+      -->
+      
+      <app-boton-tema />
   </div>
 
   

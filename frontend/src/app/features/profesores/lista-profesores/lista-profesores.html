@@ -1,1 +1,16 @@
-<p>lista-profesores works!</p>
+<main class="lista-profesores">
+
+  <div class="lista-profesores__encabezado">
+    <h1>Profesores</h1>
+    <p>Selecciona un profesor para ver su información y horario</p>
+  </div>
+
+  <hr>
+
+  <div class="lista-profesores__grid">
+    <app-tarjeta-profesor
+      *ngFor="let profesor of profesores"
+      [profesor]="profesor" />
+  </div>
+
+</main>
