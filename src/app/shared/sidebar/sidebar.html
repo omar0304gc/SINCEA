@@ -1,0 +1,28 @@
+<div class="sidebar-menu">
+  <h2>Menú de Navegación</h2>
+  <button class="btn-cerrar-sidebar" (click)="cerrarSidebar()">&times;</button>
+  
+  <ul class="nav-links">
+    <li>
+      <a (click)="redirigirA('inicio')">🏠 Volver al inicio</a>
+    </li>
+
+    <li>
+      <a (click)="redirigirA('mapa')">📍 Ingresar al mapa</a>
+    </li>
+
+    <li>
+      <a (click)="redirigirA('profesores')">👥 Apartador de profesores</a>
+    </li>
+
+    <li>
+      <a (click)="redirigirA('edificios')">🏢 Ver los edificios</a>
+    </li>
+
+    <hr class="divisor">
+
+    <li>
+      <a (click)="salir()" class="txt-logout">🚪 Cerrar sesión</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,40 @@
+<div class="map-container">
+  
+  <header class="map-header">
+    <div class="header-left">
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+      <h1 class="brand-title">SINCEA</h1>
+    </div>
+    <span class="user-role">Panel: Alumno</span>
+  </header>
+
+  <main class="map-content">
+    <div class="map-wrapper">
+      <div class="map-placeholder">
+        <p>🗺️ Croquis General del Campus UNISTMO</p>
+        <small>Aquí se renderizará el mapa interactivo</small>
+      </div>
+    </div>
+  </main>
+
+  <div class="sidebar" [class.open]="isMenuOpen">
+    <div class="sidebar-header">
+      <h3>Menú de Navegación</h3>
+      <button class="close-btn" (click)="toggleMenu()">×</button>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <button class="sidebar-item" (click)="navegar('/')">🏠 Volver al inicio</button>
+      <button class="sidebar-item active" (click)="navegar('/mapa')">📍 Ingresar al mapa</button>
+      <button class="sidebar-item" (click)="navegar('/ubicacion/detalle')">👥 Apartador de profesores</button>
+      <button class="sidebar-item" (click)="navegar('/ubicacion/registro')">🏢 Ver los edificios</button>
+      <hr class="sidebar-divider">
+      <button class="sidebar-item logout" (click)="navegar('/login')">🚪 Cerrar sesión</button>
+    </nav>
+  </div>
+
+  @if (isMenuOpen) {
+    <div class="sidebar-overlay" (click)="toggleMenu()"></div>
+  }
+
+</div>

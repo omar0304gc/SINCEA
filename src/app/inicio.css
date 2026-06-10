@@ -1,0 +1,109 @@
+.inicio-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.inicio-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.txt-bienvenida-usuario {
+  font-size: 26px;
+  font-weight: bold;
+  color: #111;
+  margin: 0 0 10px 0;
+  letter-spacing: 1px;
+}
+
+.txt-subtitulo-inicio {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+/* Rejilla de los botones de funciones */
+.menu-grid {
+  display: grid;
+  margin-top: 20%;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Botón Tarjeta Tipo Boceto */
+.menu-card {
+  background: #ffffff;
+  height: 120px;
+  border: 3px solid #072ce2;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.menu-card:hover {
+  background-color: #63ddff;
+  transform: translateX(4px);
+}
+
+.card-icon {
+  font-size: 40px;
+}
+
+.card-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 0.5px;
+}
+
+/* Footer y Botón de Salida */
+.inicio-footer {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-salir-sistema {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  margin-top: 10%;
+  background-color: transparent;
+  color: #cc0000;
+  border: 3px solid #cc0000;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.btn-salir-sistema:hover {
+  background-color: #cc0000;
+  color: #ffffff;
+}
+
+/* Adaptación para pantallas de computadora */
+@media (min-width: 600px) {
+  .menu-grid {
+    grid-template-columns: 1fr 1fr; /* Dos columnas simétricas */
+    gap: 25px;
+  }
+  
+  .inicio-container {
+    padding: 5px 20px;
+  }
+}

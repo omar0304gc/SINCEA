@@ -1,0 +1,92 @@
+<div class="directorio-container">
+
+  <div *ngIf="!vistaDetalle">
+    <header class="seccion-header">
+        <div class="header-left">
+        <button class="btn-retroceder" (click)="volverAlMenuPrincipal()">⬅️ MENU PRINCIPAL</button>
+        <h1 class="brand-title">SINCEA</h1>
+        </div>
+        <h1>PERFIL DE LOS PROFESORES</h1>
+    </header>
+
+    <div class="lista-cards">
+      <div class="card-profe" *ngFor="let profe of profesores" (click)="verPerfil(profe)">
+        <div class="avatar-circulo">{{ profe.foto }}</div>
+        <div class="info-resumen">
+          <h3>{{ profe.nombre }}</h3>
+          <p>{{ profe.puesto }}</p>
+        </div>
+        <span class="flecha-indicador">▶</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="vistaDetalle && profesorSeleccionado">
+    <header class="seccion-header">
+      <button class="btn-retroceder" (click)="regresarALista()">⬅️ REGRESAR A LA LISTA</button>
+      <h1>INFORMACIÓN DETALLADA</h1>
+    </header>
+
+    <div class="ficha-profesor">
+      <div class="foto-contenedor">
+        <div class="foto-placeholder">
+          <span class="icono-foto">{{ profesorSeleccionado.foto }}</span>
+          <p>FOTOGRAFÍA</p>
+        </div>
+      </div>
+
+      <div class="datos-contenedor">
+        <div class="bloque-dato">
+          <label>NOMBRE:</label>
+          <p>{{ profesorSeleccionado.nombre }}</p>
+        </div>
+
+        <div class="bloque-dato">
+          <label>CUBÍCULO:</label>
+          <p>{{ profesorSeleccionado.cubiculo }}</p>
+        </div>
+
+        <div class="bloque-dato">
+          <label>EDIFICIO:</label>
+          <p>{{ profesorSeleccionado.edificio }}</p>
+        </div>
+
+        <div class="bloque-dato">
+          <label>MEDIO DE CONTACTO:</label>
+          <p class="txt-contacto">{{ profesorSeleccionado.contacto }}</p>
+        </div>
+
+        <button class="btn-ver-horario" (click)="abrirHorario()">📅 VER HORARIO DE CLASES Y ASESORÍAS</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="mostrarModalHorario">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>HORARIO - {{ profesorSeleccionado?.nombre }}</h2>
+        <button class="btn-cerrar-modal" (click)="cerrarHorario()">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <p class="nota-modal">💡 En los espacios marcados como <strong>Asesoría</strong> puedes acudir a resolver tus dudas académicas.</p>
+        
+        <table class="tabla-horario">
+          <thead>
+            <tr>
+              <th>DÍA</th>
+              <th>ACTIVIDAD / MATERIA</th>
+              <th>HORARIO</th>
+              <th>TIPO</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cerrar-rect" (click)="cerrarHorario()">ENTENDIDO</button>
+      </div>
+    </div>
+  </div>
+
+</div>
