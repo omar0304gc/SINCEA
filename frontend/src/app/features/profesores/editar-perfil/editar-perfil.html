@@ -1,1 +1,85 @@
-<p>editar-perfil works!</p>
+<main class="editar-perfil">
+
+  <div class="editar-perfil__header">
+    <!--
+    <button class="editar-perfil__regresar" (click)="cancelar()">
+      <app-icono nombre="atras" ancho="22px" alto="22px" />
+    </button>
+    -->
+    <h1>Editar Perfil</h1>
+  </div>
+
+  <div class="editar-perfil__formulario">
+
+    <div class="editar-perfil__campo">
+      <input
+        type="text"
+        id="nombre"
+        placeholder=" "
+        [(ngModel)]="formulario.nombre">
+      <label for="nombre" class="editar-perfil__label"
+        [class.editar-perfil__label--activo]="formulario.nombre.length > 0">
+        Nombre completo
+      </label>
+    </div>
+
+    <div class="editar-perfil__campo">
+      <input
+        type="email"
+        id="contacto"
+        placeholder=" "
+        [(ngModel)]="formulario.contacto">
+      <label for="contacto" class="editar-perfil__label"
+        [class.editar-perfil__label--activo]="formulario.contacto.length > 0">
+        Correo de contacto
+      </label>
+    </div>
+
+    <div class="editar-perfil__campo">
+      <input
+        type="text"
+        id="departamento"
+        placeholder=" "
+        [(ngModel)]="formulario.departamento">
+      <label for="departamento" class="editar-perfil__label"
+        [class.editar-perfil__label--activo]="formulario.departamento.length > 0">
+        Carrera
+      </label>
+    </div>
+
+    <div class="editar-perfil__campo editar-perfil__campo--select">
+      <select id="edificio" [(ngModel)]="formulario.edificio">
+        <option value="" disabled>Selecciona un edificio</option>
+        <option *ngFor="let e of edificios" [value]="e">{{ e }}</option>
+      </select>
+      <label for="edificio" class="editar-perfil__label editar-perfil__label--activo">
+        Edificio
+      </label>
+    </div>
+
+    <div class="editar-perfil__campo">
+      <input
+        type="text"
+        id="cubiculo"
+        placeholder=" "
+        [(ngModel)]="formulario.cubiculo">
+      <label for="cubiculo" class="editar-perfil__label"
+        [class.editar-perfil__label--activo]="formulario.cubiculo.length > 0">
+        Cubículo
+      </label>
+    </div>
+
+  </div>
+
+  <div class="editar-perfil__acciones">
+    <button class="editar-perfil__btn-cancelar" (click)="cancelar()">
+      <app-icono nombre="cancelar" ancho="18px" alto="18px" />
+      <span>CANCELAR</span>
+    </button>
+    <button class="editar-perfil__btn-guardar" (click)="guardar()">
+      <app-icono nombre="guardar" ancho="18px" alto="18px" />
+      <span>GUARDAR</span>
+    </button>
+  </div>
+
+</main>

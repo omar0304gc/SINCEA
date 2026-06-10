@@ -1,26 +1,33 @@
+<div class="contenedor-profesor">
+
+
 <main class="detalle-profesor" *ngIf="profesor">
 
   <div class="detalle-profesor__header">
     <button class="detalle-profesor__regresar" (click)="regresar()">
       <app-icono nombre="atras" ancho="22px" alto="22px" />
     </button>
-    <h1>Perfil</h1>
+    <h1>Perfiles</h1>
   </div>
 
-  <div class="detalle-profesor__foto-contenedor">
-    <div class="detalle-profesor__foto">
-      <img 
-        [src]="profesor.foto || 'images/foto_perfil_predeterminado.jpg'"
-        [alt]="profesor.nombre" />
+  <section class="detalle-profesor__basico">
+    <div class="detalle-profesor__foto-contenedor">
+      <div class="detalle-profesor__foto">
+        <img 
+          [src]="profesor.foto || 'images/foto_perfil_predeterminado.jpg'"
+          [alt]="profesor.nombre" />
+      </div>
     </div>
-  </div>
+
+    <div class="detalle-profesor__campo-nombre">
+      <span class="detalle-profesor__valor-nombre">{{ profesor.nombre }}</span>
+    </div>
+  </section>
+  
 
   <div class="detalle-profesor__info">
 
-    <div class="detalle-profesor__campo">
-      <span class="detalle-profesor__label">NOMBRE:</span>
-      <span class="detalle-profesor__valor">{{ profesor.nombre }}</span>
-    </div>
+    
 
     <div class="detalle-profesor__campo">
       <span class="detalle-profesor__label">CONTACTO:</span>
@@ -28,7 +35,7 @@
     </div>
 
     <div class="detalle-profesor__campo">
-      <span class="detalle-profesor__label">DEPARTAMENTO:</span>
+      <span class="detalle-profesor__label">CARRERA:</span>
       <span class="detalle-profesor__valor">{{ profesor.departamento }}</span>
     </div>
 
@@ -45,7 +52,7 @@
   </div>
 
   <button class="detalle-profesor__btn-horario" (click)="verHorario()">
-    <app-icono nombre="horario" ancho="20px" alto="20px" />
+    <app-icono nombre="horario" ancho="30px" alto="30px" />
     <span>VER HORARIO</span>
   </button>
 
@@ -56,3 +63,4 @@
   <p>Profesor no encontrado.</p>
   <button (click)="regresar()">Regresar</button>
 </main>
+</div>

@@ -1,1 +1,56 @@
-<p>mi-perfil works!</p>
+<main class="mi-perfil">
+
+  <div class="mi-perfil__header">
+    <h1>Mi Perfil</h1>
+    <button class="mi-perfil__btn-editar" (click)="editarPerfil()">
+      <app-icono nombre="editar" ancho="18px" alto="18px" />
+      <span>EDITAR</span>
+    </button>
+  </div>
+
+  <div class="mi-perfil__foto-contenedor">
+    <div class="mi-perfil__foto">
+      <img
+        [src]="profesor.foto || 'images/foto_perfil_predeterminado.jpg'"
+        [alt]="profesor.nombre" />
+      <button class="mi-perfil__btn-foto">
+        <app-icono nombre="editar" ancho="16px" alto="16px" />
+      </button>
+    </div>
+  </div>
+
+  <div class="mi-perfil__info">
+
+    <div class="mi-perfil__campo">
+      <span class="mi-perfil__label">NOMBRE:</span>
+      <span class="mi-perfil__valor">{{ profesor.nombre }}</span>
+    </div>
+
+    <div class="mi-perfil__campo">
+      <span class="mi-perfil__label">CONTACTO:</span>
+      <span class="mi-perfil__valor">{{ profesor.contacto }}</span>
+    </div>
+
+    <div class="mi-perfil__campo">
+      <span class="mi-perfil__label">CARRERA:</span>
+      <span class="mi-perfil__valor">{{ profesor.departamento }}</span>
+    </div>
+
+    <div class="mi-perfil__campo">
+      <span class="mi-perfil__label">EDIFICIO:</span>
+      <span class="mi-perfil__valor">{{ profesor.edificio }}</span>
+    </div>
+
+    <div class="mi-perfil__campo">
+      <span class="mi-perfil__label">CUBÍCULO:</span>
+      <span class="mi-perfil__valor">{{ profesor.cubiculo }}</span>
+    </div>
+
+  </div>
+
+  <button class="mi-perfil__btn-horario" (click)="verHorario()">
+    <app-icono nombre="horario" ancho="20px" alto="20px" />
+    <span>MI HORARIO</span>
+  </button>
+
+</main>

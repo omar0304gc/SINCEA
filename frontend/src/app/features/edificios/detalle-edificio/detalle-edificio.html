@@ -1,40 +1,46 @@
-<main class="detalle-edificio" *ngIf="edificio">
+<div class="contenedor_edificio">
 
-  <div class="detalle-edificio__header">
-    <button class="detalle-edificio__regresar" (click)="regresar()">
-      <app-icono nombre="atras" ancho="22px" alto="22px" />
+  <main class="detalle-edificio" *ngIf="edificio">
+
+    <div class="detalle-edificio__header">
+      <button class="detalle-edificio__regresar" (click)="regresar()">
+        <app-icono nombre="atras" ancho="22px" alto="22px" />
+      </button>
+      <h1>{{ edificio.nombre }}</h1>
+    </div>
+
+    <div class="detalle-edificio__imagen">
+      <img
+        [src]="edificio.imagen || 'images/home_edificio.png'"
+        [alt]="edificio.nombre" />
+    </div>
+
+    <div class="detalle-edificio__info">
+
+      <div class="detalle-edificio__campo">
+        <span class="detalle-edificio__label">DESCRIPCIÓN:</span>
+        <span class="detalle-edificio__valor">{{ edificio.descripcion }}</span>
+      </div>
+
+      <hr>
+
+      <div class="detalle-edificio__campo">
+        <span class="detalle-edificio__label">UBICACIÓN EN EL CAMPUS:</span>
+        <span class="detalle-edificio__valor">{{ edificio.nombre }}</span>
+      </div>
+
+    </div>
+
+    <button class="detalle-edificio__btn-mapa" (click)="verEnMapa()">
+      <app-icono nombre="mapa" ancho="30px" alto="30px" />
+      <span>VER EL MAPA</span>
     </button>
-    <h1>{{ edificio.nombre }}</h1>
-  </div>
 
-  <div class="detalle-edificio__imagen">
-    <img
-      [src]="edificio.imagen || 'images/home_edificio.png'"
-      [alt]="edificio.nombre" />
-  </div>
+  </main>
 
-  <div class="detalle-edificio__info">
+  <main class="detalle-edificio detalle-edificio--vacio" *ngIf="!edificio">
+    <p>Edificio no encontrado.</p>
+    <button (click)="regresar()">Regresar</button>
+  </main>
 
-    <div class="detalle-edificio__campo">
-      <span class="detalle-edificio__label">DESCRIPCIÓN:</span>
-      <span class="detalle-edificio__valor">{{ edificio.descripcion }}</span>
-    </div>
-
-    <div class="detalle-edificio__campo">
-      <span class="detalle-edificio__label">UBICACIÓN EN EL CAMPUS:</span>
-      <span class="detalle-edificio__valor">{{ edificio.nombre }}</span>
-    </div>
-
-  </div>
-
-  <button class="detalle-edificio__btn-mapa" (click)="verEnMapa()">
-    <app-icono nombre="mapa" ancho="20px" alto="20px" />
-    <span>VER EL MAPA</span>
-  </button>
-
-</main>
-
-<main class="detalle-edificio detalle-edificio--vacio" *ngIf="!edificio">
-  <p>Edificio no encontrado.</p>
-  <button (click)="regresar()">Regresar</button>
-</main>
+</div>

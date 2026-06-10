@@ -1,0 +1,265 @@
+.horario {
+  padding: 100px 1rem 20px 1rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      color: var(--color-titulo);
+      margin: 0;
+    }
+  }
+
+  &__regresar {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-titulo);
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  &__tabla-contenedor {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  &__tabla {
+    display: flex;
+    min-width: 500px;
+    background-color: var(--color-fondo);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  // Columna de horas
+  &__col-horas {
+    display: flex;
+    flex-direction: column;
+    min-width: 52px;
+    border-right: 1px solid var(--color-secundario);
+  }
+
+  &__hora {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+    font-size: 0.65rem;
+    color: var(--color-texto);
+    border-bottom: 1px solid var(--color-secundario);
+
+    &--media {
+      border-bottom: 1px dashed var(--color-secundario);
+      opacity: 0.4;
+    }
+  }
+
+  // Columnas de días
+  &__col-dia {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--color-secundario);
+
+    &:last-child { border-right: none; }
+  }
+
+  &__col-header {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-titulo);
+    background-color: var(--color-fondo);
+    border-bottom: 2px solid var(--color-acento);
+    position: sticky;
+    top: 0;
+  }
+
+  &__slot {
+    height: 30px;
+    border-bottom: 1px solid var(--color-secundario);
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.15s ease;
+
+    &:hover:not(&--ocupado) {
+      background-color: rgba(61, 169, 252, 0.08);
+    }
+
+    &--destino {
+        background-color: rgba(61, 169, 252, 0.2);
+        border: 1px dashed var(--color-acento);
+    }
+
+    &--ocupado {
+      cursor: default;
+      background-color: rgba(61, 169, 252, 0.12);
+    }
+  }
+
+  // Bloque de materia
+  &__bloque {
+    position: absolute;
+    top: 0;
+    left: 2px;
+    right: 2px;
+    background-color: var(--color-acento);
+    border-radius: 4px;
+    padding: 2px 4px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    min-height: 28px;
+    overflow: hidden;
+    cursor: grab;
+
+    &--arrastrando {
+        opacity: 0.4;
+        cursor: grabbing;
+    }
+  }
+
+  &__bloque-materia {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--color-fondo);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  &__bloque-hora {
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.2;
+  }
+
+  &__bloque-eliminar {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(0,0,0,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    padding: 0;
+  }
+
+  // Overlay y modal
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 200;
+  }
+
+  &__modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-fondo);
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem;
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      color: var(--color-titulo);
+      margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      border-radius: 16px;
+    }
+  }
+
+  &__modal-hora {
+    font-size: 0.9rem;
+    color: var(--color-acento);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  &__modal-campo {
+    input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 2px solid var(--color-secundario);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: transparent;
+      color: var(--color-titulo);
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+
+      &:focus { border-color: var(--color-acento); }
+    }
+  }
+
+  &__modal-acciones {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      flex: 1;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      &:hover { opacity: 0.85; }
+    }
+  }
+
+  &__modal-cancelar {
+    background: transparent;
+    border: 2px solid var(--color-texto);
+    color: var(--color-texto);
+  }
+
+  &__modal-guardar {
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    color: var(--color-fondo);
+  }
+
+  
+}

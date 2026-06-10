@@ -1,0 +1,151 @@
+.editar-perfil {
+  padding: 1.5rem 1rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      color: var(--color-titulo);
+      margin: 0;
+    }
+  }
+
+  &__regresar {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-titulo);
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  &__formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--color-fondo);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+
+  &__campo {
+    position: relative;
+
+    input, select {
+      width: 100%;
+      padding: 1.2rem 1rem 0.4rem 1rem;
+      border: 2px solid var(--color-secundario);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: transparent;
+      color: var(--color-titulo);
+      outline: none;
+      transition: border-color 0.2s ease;
+      font-family: 'DM Sans', sans-serif;
+
+      &:focus {
+        border-color: var(--color-acento);
+      }
+    }
+
+    select {
+      cursor: pointer;
+      appearance: none;
+    }
+
+    &--select::after {
+      content: '▾';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-texto);
+      pointer-events: none;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--color-texto);
+    pointer-events: none;
+    transition: all 0.2s ease;
+
+    &--activo {
+      top: 0.4rem;
+      transform: translateY(0);
+      font-size: 0.75rem;
+      color: var(--color-acento);
+    }
+  }
+
+  input:focus ~ &__label {
+    top: 0.4rem;
+    transform: translateY(0);
+    font-size: 0.75rem;
+    color: var(--color-acento);
+  }
+
+  &__acciones {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+
+      &:hover { opacity: 0.85; }
+    }
+  }
+
+  &__btn-cancelar {
+    background-color: transparent;
+    border: 2px solid var(--color-texto);
+    color: var(--color-texto);
+  }
+
+  &__btn-guardar {
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    color: var(--color-fondo);
+  }
+
+  @media (min-width: 768px) {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px){
+
+    .editar-perfil{
+
+        padding: 100px 1rem 1rem 20px;
+
+    }
+
+}

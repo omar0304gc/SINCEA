@@ -1,1 +1,88 @@
-<p>ver-horario works!</p>
+<main class="horario">
+
+  <div class="horario__header">
+    <button class="horario__regresar" (click)="regresar()">
+      <app-icono nombre="atras" ancho="22px" alto="22px" />
+    </button>
+    <h1>Mi Horario</h1>
+  </div>
+
+  <div class="horario__tabla-contenedor">
+    <div class="horario__tabla">
+
+      <!-- Columna de horas -->
+      <div class="horario__col-horas">
+        <div class="horario__col-header"></div>
+        <div
+          class="horario__hora"
+          *ngFor="let slot of slots"
+          [class.horario__hora--media]="slot.endsWith(':30')">
+          {{ slot.endsWith(':00') ? slot : '' }}
+        </div>
+      </div>
+
+      <!-- Columnas por día -->
+      <div
+        class="horario__col-dia"
+        *ngFor="let dia of dias">
+
+        <div class="horario__col-header">{{ dia.nombre }}</div>
+
+        <div
+          class="horario__slot"
+          *ngFor="let slot of slots; let i = index"
+          (click)="abrirModal(dia, i)"
+          (dragover)="onDragOver($event, dia, i)"
+          (drop)="onDrop($event, dia, i)"
+          [class.horario__slot--ocupado]="slotOcupado(dia, i)"
+          [class.horario__slot--destino]="esDestino(dia, i)">
+
+          <div
+            class="horario__bloque"
+            *ngIf="esInicio(dia, i)"
+            draggable="true"
+            (dragstart)="onDragStart($event, dia, slotOcupado(dia, i)!, i)"
+            (dragend)="onDragEnd()"
+            [class.horario__bloque--arrastrando]="bloqueArrastrado?.id === slotOcupado(dia, i)?.id">
+            <span class="horario__bloque-materia">
+              {{ slotOcupado(dia, i)?.materia }}
+            </span>
+            <span class="horario__bloque-hora">
+              {{ slotOcupado(dia, i)?.horaInicio }} -
+              {{ slotOcupado(dia, i)?.horaFin }}
+            </span>
+            <button
+              class="horario__bloque-eliminar"
+              (click)="eliminarBloque(dia, slotOcupado(dia, i)!.id, $event)">
+              <app-icono nombre="cerrar" ancho="12px" alto="12px" />
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="horario__overlay" *ngIf="modalAbierto" (click)="cerrarModal()"></div>
+  <div class="horario__modal" *ngIf="modalAbierto">
+    <h3>Agregar clase</h3>
+    <p class="horario__modal-hora">
+      {{ diaSeleccionado?.nombre }} · {{ slots[indiceSeleccionado] }}
+    </p>
+    <div class="horario__modal-campo">
+      <input
+        type="text"
+        placeholder="Nombre de la materia"
+        [(ngModel)]="nuevaMateria"
+        (keyup.enter)="agregarBloque()"
+        autofocus />
+    </div>
+    <div class="horario__modal-acciones">
+      <button class="horario__modal-cancelar" (click)="cerrarModal()">Cancelar</button>
+      <button class="horario__modal-guardar" (click)="agregarBloque()">Agregar</button>
+    </div>
+  </div>
+
+</main>
