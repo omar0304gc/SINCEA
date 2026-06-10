@@ -107,7 +107,7 @@ export class MapaCroquis {
     }
   }
 
-  // Zoom centrado con rueda del mouse
+ 
   @HostListener('wheel', ['$event'])
   onWheel(event: WheelEvent) {
     event.preventDefault();
@@ -115,7 +115,7 @@ export class MapaCroquis {
     if (!contenedor) return;
 
     const rect = contenedor.getBoundingClientRect();
-    // Calcular origen del zoom como porcentaje
+    
     this.origenX = ((event.clientX - rect.left) / rect.width) * 100;
     this.origenY = ((event.clientY - rect.top) / rect.height) * 100;
 
@@ -178,7 +178,7 @@ export class MapaCroquis {
   }
 
   onMouseUp(event: MouseEvent) {
-    // Solo dispara selección si no hubo movimiento
+    
     if (this.isDragging) {
       const x = event.pageX - this.contenedorRef.nativeElement.offsetLeft;
       const y = event.pageY - this.contenedorRef.nativeElement.offsetTop;
@@ -198,4 +198,3 @@ export class MapaCroquis {
     this.contenedorRef.nativeElement.classList.remove('dragging');
   }
 }
-

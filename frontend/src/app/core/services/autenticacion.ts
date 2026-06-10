@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AutenticacionService {
 
-  private readonly urlBase = 'http://localhost:8000'; // URL del backend
+  private readonly urlBase = 'http://localhost:8000';
   private readonly llavToken = 'sincea_token';
   private readonly llavRol = 'sincea_rol';
 
@@ -28,24 +28,22 @@ export class AutenticacionService {
     );
   }
 
-  // Cerrar sesión
   cerrarSesion(): void {
     localStorage.removeItem(this.llavToken);
     localStorage.removeItem(this.llavRol);
     this.router.navigate(['/login']);
   }
 
-  // Verificar si hay sesión activa
   tieneSesion(): boolean {
     return !!localStorage.getItem(this.llavToken);
   }
 
-  // Obtener el rol del usuario actual
+
   obtenerRol(): string | null {
     return localStorage.getItem(this.llavRol);
   }
 
-  // Obtener el token
+
   obtenerToken(): string | null {
     return localStorage.getItem(this.llavToken);
   }

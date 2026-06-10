@@ -10,52 +10,52 @@ import { TarjetaProfesor, Profesor } from '../../../shared/components/tarjeta-pr
 })
 export class ListaProfesores {
 
-  // Datos de prueba — se reemplazarán con datos del backend
+  
   profesores: Profesor[] = [
     {
       id: 1,
-      nombre: 'Dr. Juan Pérez García',
+      nombre: 'M.C.C. OMAR NIEVA GARCÍA ',
       foto: '',
-      departamento: 'Ingeniería Industrial',
-      cubiculo: 'Cubículo 3',
-      edificio: 'Edificio de Posgrado',
-      contacto: 'juan.perez@unistmo.edu.mx'
+      departamento: 'Ingeniería en Computación',
+      cubiculo: 'Cubículo 21',
+      edificio: 'Edificio de Profesores',
+      contacto: 'omarng@bianni.unistmo.edu.mx'
     },
     {
       id: 2,
-      nombre: 'Mtra. Ana López Ruiz',
+      nombre: 'Dr. J. JESÚS ARELLANO PIMENTEL',
       foto: '',
-      departamento: 'Sistemas Computacionales',
-      cubiculo: 'Cubículo 7',
-      edificio: 'Cubículos de Profesores',
-      contacto: 'ana.lopez@unistmo.edu.mx'
+      departamento: 'Ingeniería en Computación',
+      cubiculo: 'Cubículo 18',
+      edificio: 'Edificio de Profesores',
+      contacto: 'jjap@sandunga.unistmo.edu.mx'
     },
     {
       id: 3,
-      nombre: 'Ing. Carlos Mendoza',
+      nombre: 'Ing. JOSÉ MARÍA ARELLANES MORENO',
       foto: '',
-      departamento: 'Ingeniería Química',
-      cubiculo: 'Cubículo 1',
-      edificio: 'Cubículos de Profesores',
-      contacto: 'carlos.mendoza@unistmo.edu.mx'
+      departamento: 'Ingeniería en Computación',
+      cubiculo: 'Cubículo 20',
+      edificio: 'Edificio de Profesores',
+      contacto: 'thunder6321@gmail.com'
     },
     {
       id: 4,
-      nombre: 'Dra. María Santana Cruz',
+      nombre: 'Dr. DANIEL PACHECO BAUTISTA',
       foto: '',
-      departamento: 'Energías Renovables',
-      cubiculo: 'Cubículo 5',
-      edificio: 'Instituto de Energía',
-      contacto: 'maria.santana@unistmo.edu.mx'
+      departamento: 'Ingeniería en Computación',
+      cubiculo: 'Cubículo 15',
+      edificio: 'Edificio de Profesores',
+      contacto: 'dpachecob@bianni.unistmo.edu.mx'
     },
     {
       id: 5,
-      nombre: 'Mtro. Roberto Díaz',
+      nombre: 'Dra. GUADALUPE TOLEDO TOLEDO',
       foto: '',
-      departamento: 'Diseño Industrial',
-      cubiculo: 'Cubículo 2',
-      edificio: 'Talleres de Diseño',
-      contacto: 'roberto.diaz@unistmo.edu.mx'
+      departamento: 'Ingeniería en Computación',
+      cubiculo: 'Cubículo 28',
+      edificio: 'Edificio de Profesores',
+      contacto: 'gtoledo@sandunga.unistmo.edu.mx'
     }
   ];
 }

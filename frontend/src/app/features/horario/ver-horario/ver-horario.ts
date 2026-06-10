@@ -37,16 +37,16 @@ export class VerHorario {
     { nombre: 'Vie', clave: 'viernes', bloques: [] },
   ];
 
-  // Modal
+
   modalAbierto: boolean = false;
   diaSeleccionado: DiaHorario | null = null;
   indiceSeleccionado: number = 0;
   nuevaMateria: string = '';
 
-  // Drag & drop
+  
   bloqueArrastrado: BloqueHorario | null = null;
   diaArrastrado: DiaHorario | null = null;
-  offsetArrastre: number = 0; // slot dentro del bloque donde se hizo click
+  offsetArrastre: number = 0; 
   slotDestino: number = -1;
   diaDestino: DiaHorario | null = null;
 
@@ -112,7 +112,7 @@ export class VerHorario {
     dia.bloques = dia.bloques.filter(b => b.id !== bloqueId);
   }
 
-  // ── DRAG & DROP ──────────────────────────────────────────────
+  
 
   onDragStart(event: DragEvent, dia: DiaHorario, bloque: BloqueHorario, indiceSlot: number) {
     this.bloqueArrastrado = bloque;
@@ -134,10 +134,10 @@ export class VerHorario {
     const nuevoInicio = indice - this.offsetArrastre;
     const nuevoFin = nuevoInicio + this.bloqueArrastrado.duracion;
 
-    // Validar límites
+   
     if (nuevoInicio < 0 || nuevoFin > this.slots.length) return;
 
-    // Validar que no haya colisión con otros bloques
+    
     const hayColision = dia.bloques.some(b => {
       if (b.id === this.bloqueArrastrado!.id) return false;
       return nuevoInicio < b.indiceInicio + b.duracion &&
@@ -145,10 +145,10 @@ export class VerHorario {
     });
     if (hayColision) return;
 
-    // Solo permite mover dentro de la misma columna
+    
     if (dia !== this.diaArrastrado) return;
 
-    // Mover el bloque
+    
     this.bloqueArrastrado.indiceInicio = nuevoInicio;
     this.bloqueArrastrado.horaInicio = this.slots[nuevoInicio];
     this.bloqueArrastrado.horaFin = this.slots[nuevoInicio + this.bloqueArrastrado.duracion] || '18:00';

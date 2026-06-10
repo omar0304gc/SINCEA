@@ -14,18 +14,18 @@ export class MiPerfil implements OnInit {
 
   profesor: Profesor = {
     id: 1,
-    nombre: 'Dr. Juan Pérez García',
-    foto: '',
-    departamento: 'Ingeniería Industrial',
-    cubiculo: 'Cubículo 3',
-    edificio: 'Edificio de Posgrado',
-    contacto: 'juan.perez@unistmo.edu.mx'
+      nombre: 'M.C.C. OMAR NIEVA GARCÍA ',
+      foto: '',
+      departamento: 'Ingeniería en Computación',
+      cubiculo: 'Cubículo 21',
+      edificio: 'Edificio de Profesores',
+      contacto: 'omarng@bianni.unistmo.edu.mx'
   };
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Aquí se cargará el perfil desde el backend con el token
+    
   }
 
   editarPerfil() {

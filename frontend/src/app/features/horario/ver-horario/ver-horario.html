@@ -10,7 +10,7 @@
   <div class="horario__tabla-contenedor">
     <div class="horario__tabla">
 
-      <!-- Columna de horas -->
+
       <div class="horario__col-horas">
         <div class="horario__col-header"></div>
         <div
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <!-- Columnas por día -->
+
       <div
         class="horario__col-dia"
         *ngFor="let dia of dias">
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+
   <div class="horario__overlay" *ngIf="modalAbierto" (click)="cerrarModal()"></div>
   <div class="horario__modal" *ngIf="modalAbierto">
     <h3>Agregar clase</h3>

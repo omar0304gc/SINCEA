@@ -42,19 +42,18 @@ export class EditarPerfil implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Aquí se cargarán los datos actuales del profesor desde el backend
-    // Por ahora cargamos datos de prueba
+
     this.formulario = {
-      nombre: 'Dr. Juan Pérez García',
-      contacto: 'juan.perez@unistmo.edu.mx',
-      departamento: 'Ingeniería Industrial',
-      edificio: 'Edificio de Posgrado',
-      cubiculo: 'Cubículo 3'
+      nombre: 'Ing. JOSÉ MARÍA ARELLANES',
+      contacto: 'thunder6321@gmail.com',
+      departamento: 'Ingeniería en Computación',
+      edificio: 'Edificio de Profesores',
+      cubiculo: 'Cubículo 20'
     };
   }
 
   guardar() {
-    // Aquí se enviará al backend
+    
     console.log('Guardando:', this.formulario);
     this.router.navigate(['/mi-perfil']);
   }

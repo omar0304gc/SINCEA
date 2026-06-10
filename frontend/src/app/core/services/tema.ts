@@ -8,12 +8,12 @@ export class TemaService {
   private temaOscuro: boolean = false;
 
   constructor() {
-    // Al iniciar, recupera la preferencia guardada
+    
     const guardado = localStorage.getItem(this.llave);
     if (guardado) {
       this.temaOscuro = guardado === 'oscuro';
     } else {
-      // Si no hay preferencia, detecta la del sistema
+      
       this.temaOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     this.aplicarTema();

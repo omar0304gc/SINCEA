@@ -3,14 +3,12 @@ import { autenticacionGuard } from './core/guards/autenticacion-guard';
 import { ContenedorPrincipal } from './layout/contenedor-principal/contenedor-principal';
 
 export const routes: Routes = [
-  // Ruta raíz → redirige a bienvenida
   {
     path: '',
     redirectTo: 'bienvenida',
     pathMatch: 'full'
   },
 
-  // Pantalla de bienvenida (pública)
   {
     path: 'bienvenida',
     loadComponent: () =>
@@ -18,7 +16,6 @@ export const routes: Routes = [
       .then(m => m.PantallaBienvenida)
   },
 
-  // Login (público)
   {
     path: 'login',
     loadComponent: () =>
@@ -26,7 +23,6 @@ export const routes: Routes = [
       .then(m => m.IniciarSesion)
   },
 
-  // Rutas protegidas — con navbar y sidebar
   {
     path: '',
     canActivate: [autenticacionGuard],
@@ -101,7 +97,6 @@ export const routes: Routes = [
     ]
   },
 
-  // Cualquier ruta desconocida → bienvenida
   {
     path: '**',
     redirectTo: 'bienvenida'

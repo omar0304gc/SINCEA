@@ -48,7 +48,7 @@
   }
 
   &__links {
-    display: none; // oculto en móvil
+    display: none;
 
     @media (min-width: 768px) {
       display: flex;
@@ -87,7 +87,6 @@
     padding: 0.25rem;
 
     @media (min-width: 768px) {
-      // sigue visible en desktop para abrir el sidebar
     }
   }
 }

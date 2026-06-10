@@ -1,35 +1,3 @@
-/*
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-
-.mapa{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 100%;
-    min-height: calc(100vh - 60px);
-    padding: 2rem 15px 15px 15px;
-    position: relative;
-    gap: 20px;
-    background-color: red;
-
-    &__contenedor_croquis{
-        background-color: blue;
-        min-width: 100%;
-        height: 100%;
-        position: relative;
-    }
-
-    &__botones{
-        display: flex;
-    }
-}
-    */
-
 .mapa {
   position: relative;
   width: 100%;

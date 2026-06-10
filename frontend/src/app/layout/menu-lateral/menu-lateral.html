@@ -1,11 +1,9 @@
-<!-- Overlay oscuro al fondo -->
 <div 
   class="overlay" 
   [class.overlay--visible]="abierto"
   (click)="onCerrar()">
 </div>
 
-<!-- Sidebar -->
 <aside class="sidebar" [class.sidebar--abierto]="abierto">
 
   <div class="sidebar__encabezado">
@@ -40,7 +38,6 @@
       <span>Edificios</span>
     </a>
 
-    <!-- Solo visible para profesores -->
     <a *ngIf="rol === 'profesor' || rol === 'admin'"
        routerLink="/mi-perfil" routerLinkActive="sidebar__link--activo"
        class="sidebar__link" (click)="onCerrar()">

@@ -12,7 +12,7 @@ import { AutenticacionService } from '../../core/services/autenticacion';
 })
 export class MenuLateral {
   @Input() abierto: boolean = false;
-  @Input() rol: string = 'alumno'; // 'alumno' | 'profesor' | 'admin'
+  @Input() rol: string = 'alumno';
   @Output() cerrar = new EventEmitter<void>();
 
   constructor(private authService: AutenticacionService) {}

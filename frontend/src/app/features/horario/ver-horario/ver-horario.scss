@@ -44,7 +44,7 @@
     overflow: hidden;
   }
 
-  // Columna de horas
+
   &__col-horas {
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@
     }
   }
 
-  // Columnas de días
+ 
   &__col-dia {
     flex: 1;
     display: flex;
@@ -115,7 +115,7 @@
     }
   }
 
-  // Bloque de materia
+ 
   &__bloque {
     position: absolute;
     top: 0;
@@ -170,7 +170,7 @@
     padding: 0;
   }
 
-  // Overlay y modal
+ 
   &__overlay {
     position: fixed;
     inset: 0;
@@ -259,7 +259,5 @@
     background-color: var(--color-acento);
     border: 2px solid var(--color-acento);
     color: var(--color-fondo);
-  }
-
-  
+  } 
 }

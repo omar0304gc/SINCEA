@@ -6,10 +6,10 @@ export const autenticacionGuard: CanActivateFn = () => {
   const token = localStorage.getItem('sincea_token');
 
   if (token) {
-    return true; // tiene sesión → puede entrar
+    return true;
   }
 
-  // no tiene sesión → regresa al login
+ 
   router.navigate(['/login']);
   return false;
 };
