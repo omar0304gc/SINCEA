@@ -18,7 +18,7 @@ export class IniciarSesion {
 
   errorMessage: string = '';
 
-  private apiUrl = 'http://localhost/sincea_api/login.php';
+  private apiUrl = 'http://localhost:3000/api/auth/login';
 
   constructor(private router: Router, private http: HttpClient) {}
 

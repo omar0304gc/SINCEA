@@ -40,7 +40,7 @@ export class MapaCroquis {
     'Aulas-modulo-5': 'Aulas Módulo 5',
     'Aulas-modulo-6': 'Aulas Módulo 6',
     'Auditorio': 'Auditorio',
-    'Biblioteca': 'Biblioteca',
+    'biblioteca': 'Biblioteca',
     'Casa-de-rector': 'Casa del Rector',
     'Cubiculos-de-profesores': 'Cubículos de Profesores',
     'Centro-de-idiomas': 'Centro de Idiomas',

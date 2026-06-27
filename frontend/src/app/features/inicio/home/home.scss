@@ -27,7 +27,7 @@
   h2{
     font-size: 3rem;
     margin: 2rem 0 0 2rem;
-    text-align: start;
+    text-align: center;
   }
 
   &__bienvenida {
@@ -113,6 +113,7 @@
 
   &__links{
     display: flex;
+    text-align: center;
     flex-direction: column;
     width: 100%;
     padding: 50px 0;
@@ -129,6 +130,8 @@
     padding: 10px 2rem;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: space-evenly;
+  
     
     a{
       background-color: var(--color-texto-boton);

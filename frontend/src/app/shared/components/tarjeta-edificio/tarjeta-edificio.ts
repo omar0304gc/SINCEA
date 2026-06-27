@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 export interface Edificio {
-  id: number;
+  id?: number;
   nombre: string;
-  imagen: string;
+  imagen?: string;
   descripcion: string;
   ubicacion: string;
 }

@@ -14,12 +14,12 @@ export class MiPerfil implements OnInit {
 
   profesor: Profesor = {
     id: 1,
-      nombre: 'M.C.C. OMAR NIEVA GARCÍA ',
+      nombre: 'Ing. José María Arellanes Moreno',
       foto: '',
       departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 21',
+      cubiculo: 'Cubículo 20',
       edificio: 'Edificio de Profesores',
-      contacto: 'omarng@bianni.unistmo.edu.mx'
+      contacto: 'thunder6321@gmail.com'
   };
 
   constructor(private router: Router) {}

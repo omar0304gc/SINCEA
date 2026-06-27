@@ -1,71 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core'; // 👈 Importamos OnInit e inject
 import { CommonModule } from '@angular/common';
-import { TarjetaEdificio, Edificio } from '../../../shared/components/tarjeta-edificio/tarjeta-edificio';
+import { HttpClient } from '@angular/common/http'; // 👈 Importamos HttpClient para conectar con Node
+import { FormsModule } from '@angular/forms';
+import { TarjetaEdificio } from '../../../shared/components/tarjeta-edificio/tarjeta-edificio';
+
+export interface Edificio {
+  id?: number;
+  nombre: string;
+  ubicacion: string;
+  descripcion: string;
+  imagen: string;
+}
 
 @Component({
   selector: 'app-lista-edificios',
-  imports: [CommonModule, TarjetaEdificio],
+  standalone: true,
+  imports: [CommonModule, FormsModule, TarjetaEdificio],
   templateUrl: './lista-edificios.html',
   styleUrl: './lista-edificios.scss'
 })
-export class ListaEdificios {
 
-  edificios: Edificio[] = [
-    {
-      id: 1,
-      nombre: 'Biblioteca',
-      imagen: '',
-      descripcion: 'Acervo bibliográfico y sala de lectura.',
-      ubicacion: 'Biblioteca'
-    },
-    {
-      id: 2,
-      nombre: 'Auditorio',
-      imagen: '',
-      descripcion: 'Espacio para eventos y conferencias.',
-      ubicacion: 'Auditorio'
-    },
-    {
-      id: 3,
-      nombre: 'Rectoría',
-      imagen: '',
-      descripcion: 'Oficinas administrativas principales.',
-      ubicacion: 'Rectoria'
-    },
-    {
-      id: 4,
-      nombre: 'Laboratorio de Química',
-      imagen: '',
-      descripcion: 'Laboratorio de prácticas de química.',
-      ubicacion: 'Laboratorio-de-quimica'
-    },
-    {
-      id: 5,
-      nombre: 'Salas de Cómputo',
-      imagen: '',
-      descripcion: 'Salas equipadas con computadoras.',
-      ubicacion: 'Salas-de-computo'
-    },
-    {
-      id: 6,
-      nombre: 'Cubículos de Profesores',
-      imagen: '',
-      descripcion: 'Oficinas de atención a alumnos.',
-      ubicacion: 'Cubiculos-de-profesores'
-    },
-    {
-      id: 7,
-      nombre: 'Edificio de Posgrado',
-      imagen: '',
-      descripcion: 'Aulas y oficinas de posgrado.',
-      ubicacion: 'Edificio-de-posgrado'
-    },
-    {
-      id: 8,
-      nombre: 'Instituto de Energía',
-      imagen: '',
-      descripcion: 'Laboratorios de energías renovables.',
-      ubicacion: 'Instituto-de-energia'
-    }
-  ];
+export class ListaEdificios implements OnInit { // 👈 Implementamos la interfaz OnInit
+
+  // Inyectamos el servicio HttpClient de Angular
+  private http = inject(HttpClient);
+  private cdr = inject(ChangeDetectorRef);
+  
+  // URL de nuestro endpoint general de edificios en Node.js
+  private apiUrl = 'http://localhost:3000/api/edificios';
+
+  // Inicializamos el arreglo vacío. Ahora se llenará con lo que devuelva la BD
+  edificios: Edificio[] = [];
+
+  // Ejecutamos la carga automática al montar la pantalla
+  ngOnInit(): void {
+    this.obtenerEdificios();
+  }
+
+  // Método para traer la lista de infraestructura desde el Backend
+  obtenerEdificios(): void {
+    this.http.get<any>(this.apiUrl).subscribe({
+      next: (response) => {
+        if (response.status === 'success') {
+          // Asignamos las filas de MySQL directamente a tu tabla visual
+          this.edificios = response.data.map((edif: any) => ({
+            ...edif,
+            imagen: edif.imagen || ''
+          }));
+          this.cdr.detectChanges();
+        }
+      },
+      error: (err) => {
+        console.error('Error al conectar con la API de edificios:', err);
+      }
+    });
+  }
 }

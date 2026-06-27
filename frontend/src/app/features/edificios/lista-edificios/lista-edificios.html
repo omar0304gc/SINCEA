@@ -8,9 +8,11 @@
   <hr>
 
   <div class="lista-edificios__lista">
-    <app-tarjeta-edificio
-      *ngFor="let edificio of edificios"
-      [edificio]="edificio" />
+    @for (edificio of edificios; track edificio.id) {
+      <app-tarjeta-edificio [edificio]="edificio" />
+    } @empty {
+      <p style="text-align: center; width: 100%;">Cargando infraestructura del campus...</p>
+    }
   </div>
 
 </main>
