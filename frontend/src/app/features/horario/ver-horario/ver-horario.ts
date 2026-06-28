@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { Icono } from '../../../shared/components/icono/icono';
 
 export interface BloqueHorario {
@@ -26,6 +27,7 @@ export interface DiaHorario {
   styleUrl: './ver-horario.scss'
 })
 export class VerHorario {
+  private location = inject(Location);
 
   slots: string[] = this.generarSlots();
 
@@ -169,6 +171,6 @@ export class VerHorario {
   }
 
   regresar() {
-    this.router.navigate(['/mi-perfil']);
+    this.location.back(); 
   }
 }

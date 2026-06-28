@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import { Icono } from '../icono/icono';
 
 export interface Profesor {
-  id: number;
+  id_maestro: number;
   nombre: string;
+  usuario?: string;
   foto: string;
   departamento: string;
   cubiculo: string;
@@ -25,6 +26,6 @@ export class TarjetaProfesor {
   constructor(private router: Router) {}
 
   verDetalle() {
-    this.router.navigate(['/profesores', this.profesor.id]);
+    this.router.navigate(['/profesores', this.profesor.id_maestro]);
   }
 }

@@ -1,6 +1,8 @@
 <div class="tarjeta" (click)="verDetalle()">
   <div class="tarjeta__foto">
     <img 
+      alt="Fotografía del profesor" 
+      title="Perfil del profesor"
       [src]="profesor.foto || 'images/foto_perfil_predeterminado.jpg'" 
       [alt]="profesor.nombre"
       class="img-circular" />

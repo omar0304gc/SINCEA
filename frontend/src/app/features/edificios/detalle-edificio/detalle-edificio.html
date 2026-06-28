@@ -3,7 +3,7 @@
   <main class="detalle-edificio" *ngIf="edificio">
 
     <div class="detalle-edificio__header">
-      <button class="detalle-edificio__regresar" (click)="regresar()">
+      <button type="button" class="detalle-edificio__regresar" (click)="regresar()" title="Regresar">
         <app-icono nombre="atras" ancho="22px" alto="22px" />
       </button>
       <h1>{{ edificio.nombre }}</h1>
@@ -11,6 +11,8 @@
 
     <div class="detalle-edificio__imagen">
       <img
+        alt="Detalle edificio" 
+        title="Detalle edificio"
         [src]="edificio.imagen || 'images/home_edificio.png'"
         [alt]="edificio.nombre" />
     </div>

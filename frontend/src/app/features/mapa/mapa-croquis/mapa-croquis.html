@@ -246,10 +246,10 @@
   </div>
 
   <div class="mapa__controles">
-    <button class="mapa__btn-control" (click)="acercar()">
+    <button type="button" class="mapa__btn-control" (click)="acercar()" title="Acercar">
       <app-icono nombre="mas" ancho="24px" alto="24px" />
     </button>
-    <button class="mapa__btn-control" (click)="alejar()">
+    <button type="button" class="mapa__btn-control" (click)="alejar()" title="Alejar">
       <app-icono nombre="menos" ancho="24px" alto="24px" />
     </button>
   </div>
@@ -262,7 +262,7 @@
   <div class="mapa__info" *ngIf="edificioSeleccionado">
     <div class="mapa__info-contenido">
       <h3>{{ edificioSeleccionado.nombre }}</h3>
-      <button class="mapa__info-cerrar" (click)="cerrarInfo()">
+      <button type="button" class="mapa__info-cerrar" (click)="cerrarInfo()" title="Cerrar">
         <app-icono nombre="cerrar" ancho="18px" alto="18px" />
       </button>
     </div>

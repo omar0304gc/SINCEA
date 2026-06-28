@@ -1,7 +1,7 @@
 <main class="horario">
 
   <div class="horario__header">
-    <button class="horario__regresar" (click)="regresar()">
+    <button type="button" class="horario__regresar" (click)="regresar()" title="Regresar">
       <app-icono nombre="atras" ancho="22px" alto="22px" />
     </button>
     <h1>Mi Horario</h1>
@@ -51,9 +51,9 @@
               {{ slotOcupado(dia, i)?.horaInicio }} -
               {{ slotOcupado(dia, i)?.horaFin }}
             </span>
-            <button
+            <button type="button"
               class="horario__bloque-eliminar"
-              (click)="eliminarBloque(dia, slotOcupado(dia, i)!.id, $event)">
+              (click)="eliminarBloque(dia, slotOcupado(dia, i)!.id, $event)" title="eliminar">
               <app-icono nombre="cerrar" ancho="12px" alto="12px" />
             </button>
           </div>

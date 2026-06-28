@@ -1,76 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Icono } from '../../../shared/components/icono/icono';
 import { Profesor } from '../../../shared/components/tarjeta-profesor/tarjeta-profesor';
 
 @Component({
   selector: 'app-detalle-profesor',
+  standalone: true,
   imports: [CommonModule, Icono],
   templateUrl: './detalle-profesor.html',
   styleUrl: './detalle-profesor.scss'
 })
 export class DetalleProfesor implements OnInit {
 
-  profesor: Profesor | null = null;
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private http = inject(HttpClient);
+  private cdr = inject(ChangeDetectorRef);
+  private apiUrl = 'http://localhost:3000/api/profesores/lista';
 
-  
-  profesores: Profesor[] = [
-    {
-      id: 1,
-      nombre: 'M.C.C. OMAR NIEVA GARCÍA ',
-      foto: '',
-      departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 21',
-      edificio: 'Edificio de Profesores',
-      contacto: 'omarng@bianni.unistmo.edu.mx'
-    },
-    {
-      id: 2,
-      nombre: 'Dr. J. JESÚS ARELLANO PIMENTEL',
-      foto: '',
-      departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 18',
-      edificio: 'Edificio de Profesores',
-      contacto: 'jjap@sandunga.unistmo.edu.mx'
-    },
-    {
-      id: 3,
-      nombre: 'Ing. JOSÉ MARÍA ARELLANES MORENO',
-      foto: '',
-      departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 20',
-      edificio: 'Edificio de Profesores',
-      contacto: 'thunder6321@gmail.com'
-    },
-    {
-      id: 4,
-      nombre: 'Dr. DANIEL PACHECO BAUTISTA',
-      foto: '',
-      departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 15',
-      edificio: 'Edificio de Profesores',
-      contacto: 'dpachecob@bianni.unistmo.edu.mx'
-    },
-    {
-      id: 5,
-      nombre: 'Dra. GUADALUPE TOLEDO TOLEDO',
-      foto: '',
-      departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 28',
-      edificio: 'Edificio de Profesores',
-      contacto: 'gtoledo@sandunga.unistmo.edu.mx'
-    }
-  ];
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  profesor: any | null = null;
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.profesor = this.profesores.find(p => p.id === id) || null;
+    
+    const idParam = Number(this.route.snapshot.paramMap.get('id'));
+
+    
+    this.http.get<any>(this.apiUrl).subscribe({
+      next: (response) => {
+        if (response.status === 'success' && response.data) {
+          
+          this.profesor = response.data.find((p: any) => p.id_maestro === idParam) || null;
+          
+          
+          this.cdr.detectChanges();
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener el detalle del profesor desde la BD:', err);
+      }
+    });
   }
 
   regresar() {
@@ -79,7 +49,7 @@ export class DetalleProfesor implements OnInit {
 
   verHorario() {
     this.router.navigate(['/horario'], { 
-      queryParams: { profesorId: this.profesor?.id }
+      queryParams: { profesorId: this.profesor?.id_maestro }
     });
   }
 }

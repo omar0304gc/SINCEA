@@ -1,86 +1,74 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Icono } from '../../../shared/components/icono/icono';
 import { Edificio } from '../../../shared/components/tarjeta-edificio/tarjeta-edificio';
 
+
 @Component({
   selector: 'app-detalle-edificio',
+  standalone: true,
   imports: [CommonModule, Icono],
   templateUrl: './detalle-edificio.html',
   styleUrl: './detalle-edificio.scss'
 })
 export class DetalleEdificio implements OnInit {
 
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private http = inject(HttpClient);
+  private cdr = inject(ChangeDetectorRef);
+
+  private apiUrl = 'http://localhost:3000/api/edificios';
+
   edificio: Edificio | null = null;
-
-  edificios: Edificio[] = [
-    {
-      id: 1,
-      nombre: 'Biblioteca',
-      imagen: '',
-      descripcion: 'Acervo bibliográfico y sala de lectura para estudiantes y docentes.',
-      ubicacion: 'Biblioteca'
-    },
-    {
-      id: 2,
-      nombre: 'Auditorio',
-      imagen: '',
-      descripcion: 'Espacio para eventos académicos, conferencias y ceremonias.',
-      ubicacion: 'Auditorio'
-    },
-    {
-      id: 3,
-      nombre: 'Rectoría',
-      imagen: '',
-      descripcion: 'Oficinas administrativas principales del campus.',
-      ubicacion: 'Rectoria'
-    },
-    {
-      id: 4,
-      nombre: 'Laboratorio de Química',
-      imagen: '',
-      descripcion: 'Laboratorio equipado para prácticas de química general y analítica.',
-      ubicacion: 'Laboratorio-de-quimica'
-    },
-    {
-      id: 5,
-      nombre: 'Salas de Cómputo',
-      imagen: '',
-      descripcion: 'Salas equipadas con computadoras para uso académico.',
-      ubicacion: 'Salas-de-computo'
-    },
-    {
-      id: 6,
-      nombre: 'Cubículos de Profesores',
-      imagen: '',
-      descripcion: 'Oficinas de atención a alumnos por parte del cuerpo docente.',
-      ubicacion: 'Cubiculos-de-profesores'
-    },
-    {
-      id: 7,
-      nombre: 'Edificio de Posgrado',
-      imagen: '',
-      descripcion: 'Aulas y oficinas dedicadas a los programas de posgrado.',
-      ubicacion: 'Edificio-de-posgrado'
-    },
-    {
-      id: 8,
-      nombre: 'Instituto de Energía',
-      imagen: '',
-      descripcion: 'Laboratorios de investigación en energías renovables.',
-      ubicacion: 'Instituto-de-energia'
-    }
-  ];
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  cargando: boolean = true;
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.edificio = this.edificios.find(e => e.id === id) || null;
+    const idEdificio = this.route.snapshot.paramMap.get('id');
+
+    if (idEdificio) {
+      this.cargarDatosDesdeBD(idEdificio);
+    } else {
+      this.cargando = false;
+    }
+  }
+
+  cargarDatosDesdeBD(id: string) {
+    this.cargando = true;
+
+    this.http.get<any>(this.apiUrl).subscribe({
+      next: (response) => {
+        if (response.status === 'success' && response.data) {
+          
+          
+          const edificioBD = response.data.find((e: any) => e.id === id);
+
+          if (edificioBD) {
+            
+            this.edificio = {
+              id: edificioBD.id, 
+              nombre: edificioBD.nombre,
+              imagen: edificioBD.imagen || '',
+              descripcion: edificioBD.descripcion,
+              ubicacion: edificioBD.ubicacion
+            };
+          } else {
+            
+            this.edificio = null;
+          }
+        }
+        this.cargando = false;
+        this.cdr.detectChanges(); 
+      },
+      error: (err) => {
+        console.error('Error al conectar con la BD en detalles:', err);
+        this.edificio = null;
+        this.cargando = false;
+        this.cdr.detectChanges();
+      }
+    });
   }
 
   regresar() {

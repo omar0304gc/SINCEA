@@ -1,6 +1,6 @@
 const Edificio = require('../models/edificio.model');
 
-// Controlador para listar todo (Administrador)
+
 const listarEdificios = async (req, res) => {
     try {
         const edificios = await Edificio.obtenerTodos();
@@ -11,9 +11,8 @@ const listarEdificios = async (req, res) => {
     }
 };
 
-// Controlador para el clic del Croquis (Busca por ID)
 const obtenerNombreEdificio = async (req, res) => {
-    const { id } = req.params; // Captura el ID desde la URL
+    const { id } = req.params; 
     try {
         const edificio = await Edificio.obtenerPorId(id);
         if (!edificio) {

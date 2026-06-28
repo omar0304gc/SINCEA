@@ -1,8 +1,13 @@
 <main class="mi-perfil">
 
   <div class="mi-perfil__header">
+    <button type="button" class="mi-perfil__regresar" (click)="regresar()" title="Regresar" style="background: none; border: none; cursor: pointer; margin-right: 10px;">
+      <app-icono nombre="atras" ancho="22px" alto="22px" />
+    </button>
+    
     <h1>Mi Perfil</h1>
-    <button class="mi-perfil__btn-editar" (click)="editarPerfil()">
+    
+    <button type="button" class="mi-perfil__btn-editar" (click)="editarPerfil()" title="Editar perfil completo">
       <app-icono nombre="editar" ancho="18px" alto="18px" />
       <span>EDITAR</span>
     </button>
@@ -11,9 +16,12 @@
   <div class="mi-perfil__foto-contenedor">
     <div class="mi-perfil__foto">
       <img
+        alt="Fotografía del profesor" 
+        title="Perfil del profesor"
         [src]="profesor.foto || 'images/foto_perfil_predeterminado.jpg'"
-        [alt]="profesor.nombre" />
-      <button class="mi-perfil__btn-foto">
+        [alt]="profesor.nombre"/>
+
+      <button type="button" class="mi-perfil__btn-foto" (click)="cambiarFoto()" title="Cambiar fotografía de perfil">
         <app-icono nombre="editar" ancho="16px" alto="16px" />
       </button>
     </div>

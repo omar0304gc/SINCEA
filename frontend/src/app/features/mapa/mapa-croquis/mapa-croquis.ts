@@ -1,15 +1,19 @@
-import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener, inject, OnInit, ChangeDetectorRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Icono } from '../../../shared/components/icono/icono';
 
 interface InfoEdificio {
   id: string;
   nombre: string;
+  descripcion?: string | null;
+  ubicacion?: string | null;
 }
 
 @Component({
   selector: 'app-mapa-croquis',
+  standalone: true,
   imports: [CommonModule, Icono],
   templateUrl: './mapa-croquis.html',
   styleUrl: './mapa-croquis.scss'
@@ -17,6 +21,11 @@ interface InfoEdificio {
 export class MapaCroquis {
   @ViewChild('contenedor') contenedorRef!: ElementRef<HTMLDivElement>;
   @ViewChild('svgWrapper') svgWrapperRef!: ElementRef<HTMLDivElement>;
+
+  private router = inject(Router);
+  private http = inject(HttpClient);
+  private cdr = inject(ChangeDetectorRef);
+  private apiUrl = 'http://localhost:3000/api/edificios';
 
   escala: number = 1;
   escalaMinima: number = 0.4;
@@ -30,7 +39,7 @@ export class MapaCroquis {
   scrollLeft: number = 0;
   scrollTop: number = 0;
 
-  nombreEdificios: { [key: string]: string } = {
+  /*nombreEdificios: { [key: string]: string } = {
     'Cecyte': 'CECYTE',
     'Aulas-de-disenio': 'Aulas de Diseño',
     'Aulas-modulo-1': 'Aulas Módulo 1',
@@ -40,7 +49,7 @@ export class MapaCroquis {
     'Aulas-modulo-5': 'Aulas Módulo 5',
     'Aulas-modulo-6': 'Aulas Módulo 6',
     'Auditorio': 'Auditorio',
-    'biblioteca': 'Biblioteca',
+    'Biblioteca': 'Biblioteca',
     'Casa-de-rector': 'Casa del Rector',
     'Cubiculos-de-profesores': 'Cubículos de Profesores',
     'Centro-de-idiomas': 'Centro de Idiomas',
@@ -72,9 +81,7 @@ export class MapaCroquis {
     'path40': 'Sistema Fotovoltaico',
     'path41': 'Cancha de Basquetbol',
     'path42': 'Terreno de la Cancha',
-  };
-
-  constructor(private router: Router) {}
+  };*/
 
   calcularEscalaMinima(): number {
     const contenedor = this.contenedorRef?.nativeElement;
@@ -133,17 +140,39 @@ export class MapaCroquis {
       .forEach(el => el.classList.remove('seleccionado'));
 
     const target = event.target as SVGElement;
-    const edificio = target.closest('.edificio') as SVGElement | null;
+    const edificioSVG = target.closest('.edificio') as SVGElement | null;
 
-    if (edificio) {
-      edificio.classList.add('seleccionado');
-      const id = edificio.id;
-      this.edificioSeleccionado = {
-        id,
-        nombre: this.nombreEdificios[id] || id
-      };
+    if (edificioSVG) {
+      edificioSVG.classList.add('seleccionado');
+      const idElemento = edificioSVG.id;
+
+      this.http.get<any>(this.apiUrl).subscribe({
+        next: (response) => {
+          if (response.status === 'success' && response.data) {
+            
+            const edificioBD = response.data.find((e: any) => e.id === idElemento);
+            
+            if (edificioBD) {
+              this.edificioSeleccionado = {
+                id: edificioBD.id,
+                nombre: edificioBD.nombre,
+                descripcion: edificioBD.descripcion,
+                ubicacion: edificioBD.ubicacion
+              };
+            } else {
+              
+              this.edificioSeleccionado = { id: idElemento, nombre: `${idElemento}` };
+            }
+            this.cdr.detectChanges();
+          }
+        },
+        error: (err) => {
+          console.error('Error al consultar el edificio en el croquis:', err);
+        }
+      });
     } else {
       this.edificioSeleccionado = null;
+      this.cdr.detectChanges();
     }
   }
 
@@ -151,8 +180,9 @@ export class MapaCroquis {
     this.router.navigate(['/mapa-google']);
   }
 
-  cerrarInfo() {
+  cerrarInfo(){
     this.edificioSeleccionado = null;
+    this.cdr.detectChanges();
   }
 
   onMouseDown(event: MouseEvent) {
