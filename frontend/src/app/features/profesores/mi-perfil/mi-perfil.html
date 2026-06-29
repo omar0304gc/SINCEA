@@ -13,7 +13,7 @@
     </button>
   </div>
 
-  <div class="mi-perfil__foto-contenedor">
+  <div class="mi-perfil__foto-contenedor" *ngIf="profesor">
     <div class="mi-perfil__foto">
       <img
         alt="Fotografía del profesor" 
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class="mi-perfil__info">
+  <div class="mi-perfil__info" *ngIf="profesor">
 
     <div class="mi-perfil__campo">
       <span class="mi-perfil__label">NOMBRE:</span>
@@ -52,6 +52,10 @@
     <div class="mi-perfil__campo">
       <span class="mi-perfil__label">CUBÍCULO:</span>
       <span class="mi-perfil__valor">{{ profesor.cubiculo }}</span>
+    </div>
+
+    <div *ngIf="!profesor" class="mi-perfil__cargando">
+      Cargando perfil...
     </div>
 
   </div>

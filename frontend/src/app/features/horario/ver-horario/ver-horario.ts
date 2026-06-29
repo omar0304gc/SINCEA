@@ -1,9 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Icono } from '../../../shared/components/icono/icono';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { OnInit } from '@angular/core';
 
 export interface BloqueHorario {
   id: string;
@@ -26,8 +29,13 @@ export interface DiaHorario {
   templateUrl: './ver-horario.html',
   styleUrl: './ver-horario.scss'
 })
-export class VerHorario {
+export class VerHorario implements OnInit {
   private location = inject(Location);
+  private cdr = inject(ChangeDetectorRef);
+  private http = inject(HttpClient);
+  private route = inject(ActivatedRoute);
+
+private apiUrl = 'http://localhost:3000/api/horarios';
 
   slots: string[] = this.generarSlots();
 
@@ -38,6 +46,93 @@ export class VerHorario {
     { nombre: 'Jue', clave: 'jueves', bloques: [] },
     { nombre: 'Vie', clave: 'viernes', bloques: [] },
   ];
+
+  ngOnInit() {
+
+  const usuario = JSON.parse(localStorage.getItem('usuario')!);
+
+  if (usuario?.id_maestro) {
+    this.cargarHorario(usuario.id_maestro);
+  }
+
+}
+
+cargarHorario(idProfesor: number) {
+
+  this.http.get<any>(`${this.apiUrl}/${idProfesor}`).subscribe({
+
+    next: (respuesta) => {
+
+      if (respuesta.status !== 'success') return;
+
+      // Limpiar horario
+      this.dias.forEach(d => d.bloques = []);
+
+      respuesta.data.forEach((clase: any) => {
+
+        const dia = this.obtenerDia(clase.dia);
+
+        if (!dia) return;
+
+        const indiceInicio = this.obtenerIndice(clase.hora_inicio);
+
+        const indiceFin = this.obtenerIndice(clase.hora_fin);
+
+        dia.bloques.push({
+
+          id: clase.id_horario.toString(),
+
+          materia: clase.materia,
+
+          horaInicio: clase.hora_inicio.substring(0,5),
+
+          horaFin: clase.hora_fin.substring(0,5),
+
+          indiceInicio,
+
+          duracion: indiceFin - indiceInicio
+
+        });
+
+      });
+      this.cdr.detectChanges();
+
+    },
+
+    error: (err) => {
+
+      console.error(err);
+
+    }
+
+  });
+
+}
+
+
+obtenerDia(nombre: string): DiaHorario | undefined {
+
+  const dias: any = {
+
+    'Lunes':'lunes',
+    'Martes':'martes',
+    'Miércoles':'miercoles',
+    'Jueves':'jueves',
+    'Viernes':'viernes'
+
+  };
+
+  return this.dias.find(d => d.clave === dias[nombre]);
+
+}
+
+obtenerIndice(hora: string): number {
+
+  const [h,m] = hora.split(':').map(Number);
+
+  return (h - 8) * 2 + (m >= 30 ? 1 : 0);
+
+}
 
 
   modalAbierto: boolean = false;

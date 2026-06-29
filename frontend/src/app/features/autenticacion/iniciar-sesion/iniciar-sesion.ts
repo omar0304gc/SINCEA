@@ -40,20 +40,22 @@ export class IniciarSesion {
     
     this.http.post<any>(this.apiUrl, cuerpoPeticion).subscribe({
       next: (respuesta) => {
-        if (respuesta.status === 'success') {
-          
-          localStorage.setItem('sincea_token', 'token-simulado'); 
-          localStorage.setItem('sincea_rol', respuesta.alumno.rol); 
-          
-          
-          localStorage.setItem('userName', respuesta.alumno.nombre); 
 
-          
+        if (respuesta.status === 'success') {
+
+          localStorage.setItem('sincea_token', 'token-simulado');
+
+          localStorage.setItem('sincea_rol', respuesta.alumno.rol);
+
+          localStorage.setItem('userName', respuesta.alumno.nombre);
+
+          // ESTA LÍNEA FALTABA
+          localStorage.setItem('usuario', JSON.stringify(respuesta.alumno));
+
           this.router.navigate(['/inicio']);
-        } else {
-          
-          this.errorMessage = respuesta.message;
+
         }
+
       },
       error: (err) => {
         

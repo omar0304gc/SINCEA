@@ -1,4 +1,6 @@
 import { Component, OnInit, inject} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -16,17 +18,39 @@ export class MiPerfil implements OnInit {
   private router = inject(Router);
   private location = inject(Location);
 
-  profesor: Profesor = {
-    id_maestro: 1,
-      nombre: 'Ing. José María Arellanes Moreno',
-      foto: '',
-      departamento: 'Ingeniería en Computación',
-      cubiculo: 'Cubículo 20',
-      edificio: 'Edificio de Profesores',
-      contacto: 'thunder6321@gmail.com'
-  };
+  private http = inject(HttpClient);
+  private cdr = inject(ChangeDetectorRef);
 
-  ngOnInit() { 
+  private apiUrl = 'http://localhost:3000/api/profesores';
+
+  private idProfesor = 0;
+  profesor!: Profesor;
+
+
+  ngOnInit() {
+
+    const usuario = JSON.parse(localStorage.getItem('usuario')!);
+
+    this.idProfesor = usuario.id_maestro;
+
+    this.http.get<any>(`${this.apiUrl}/${this.idProfesor}`).subscribe({
+
+      next: (respuesta) => {
+
+        if (respuesta.status === 'success') {
+
+          this.profesor = respuesta.data;
+
+          this.cdr.detectChanges();
+
+        }
+
+      },
+
+      error: err => console.error(err)
+
+    });
+
   }
 
   regresar() {

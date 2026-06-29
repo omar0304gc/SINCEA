@@ -28,19 +28,37 @@ const login = async (req, res) => {
         }
 
       
-        const queryMaestro = 'SELECT nombre, contrasena FROM maestros WHERE nombre = ? AND contrasena = ? LIMIT 1';
-        const [maestros] = await db.execute(queryMaestro, [usuario, contrasena]);
+        //const queryMaestro = 'SELECT nombre, contrasena FROM maestros WHERE nombre = ? AND contrasena = ? LIMIT 1';
+        const queryMaestro = `
+        SELECT
+        id_maestro,
+        nombre,
+        contacto,
+        departamento,
+        edificio,
+        cubiculo
+        FROM maestros
+        WHERE nombre = ? AND contrasena = ?
+        LIMIT 1
+        `;
+                const [maestros] = await db.execute(queryMaestro, [usuario, contrasena]);
 
         if (maestros.length > 0) {
             const maestro = maestros[0];
+
             return res.json({
                 status: 'success',
                 message: 'Acceso concedido como Profesor',
-                alumno: { 
+                alumno: {
+                    id_maestro: maestro.id_maestro,
                     matricula: '',
                     nombre: maestro.nombre,
                     carrera: 'Docencia',
-                    rol: 'profesor' 
+                    rol: 'profesor',
+                    contacto: maestro.contacto,
+                    departamento: maestro.departamento,
+                    edificio: maestro.edificio,
+                    cubiculo: maestro.cubiculo
                 }
             });
         }

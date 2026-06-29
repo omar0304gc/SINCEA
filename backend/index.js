@@ -16,6 +16,7 @@ app.get('/api/status', (req, res) => {
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/profesores', require('./routes/profesor.routes'));
 app.use('/api/edificios', require('./routes/edificio.routes'));
+app.use('/api/horarios', require('./routes/horario.routes'));
 
 
 app.listen(PORT, () => {

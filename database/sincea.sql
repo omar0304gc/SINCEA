@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2026 a las 06:29:17
+-- Tiempo de generación: 29-06-2026 a las 02:32:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sincea`
 --
-CREATE DATABASE IF NOT EXISTS `sincea` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sincea`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `sincea`;
 -- Estructura de tabla para la tabla `alumnos`
 --
 
-DROP TABLE IF EXISTS `alumnos`;
 CREATE TABLE `alumnos` (
   `matricula` varchar(15) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -52,7 +49,6 @@ INSERT INTO `alumnos` (`matricula`, `nombre`, `curp`, `carrera`) VALUES
 -- Estructura de tabla para la tabla `edificios`
 --
 
-DROP TABLE IF EXISTS `edificios`;
 CREATE TABLE `edificios` (
   `id` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -73,7 +69,7 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`) VALUES
 ('6', 'Cubículos de Profesores', 'Oficinas de atención a alumnos', 'Cubículos de profesores'),
 ('7', 'Edificio de Posgrado', 'Aulas y edificios de posgrado', 'Edificio de posgrado'),
 ('8', 'Instituto de la Energía', 'Laboratorios de energía renovables', 'Instituto de la energía'),
-('Aulas-de-disenio', 'Aulas de Diseño', 'Aulas de diseño', 'Aulas de diseño'),
+('9', 'Aulas de Diseño', 'Aulas de diseño en donde se diseñan', 'Aulas de diseño'),
 ('Aulas-modulo-1', 'Aulas Módulo 1', 'Aulas primer módulo', ''),
 ('Aulas-modulo-2', 'Aulas Módulo 2', 'Aulas segundo módulo', ''),
 ('Aulas-modulo-3', 'Aulas Módulo 3', 'Aulas tercer módulo', ''),
@@ -116,7 +112,6 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`) VALUES
 -- Estructura de tabla para la tabla `horarios`
 --
 
-DROP TABLE IF EXISTS `horarios`;
 CREATE TABLE `horarios` (
   `id_horario` int(11) NOT NULL,
   `id_maestro` int(11) NOT NULL,
@@ -126,13 +121,27 @@ CREATE TABLE `horarios` (
   `hora_fin` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `horarios`
+--
+
+INSERT INTO `horarios` (`id_horario`, `id_maestro`, `materia`, `dia`, `hora_inicio`, `hora_fin`) VALUES
+(1, 3, 'Programación Web 2', 'Lunes', '08:00:00', '10:00:00'),
+(2, 3, 'Programación Web 1', 'Martes', '08:00:00', '10:00:00'),
+(3, 3, 'Programación Web 2', 'Miércoles', '08:00:00', '10:00:00'),
+(4, 3, 'Programación Web 1', 'Miércoles', '10:30:00', '12:00:00'),
+(5, 3, 'Redes de Computo', 'Miércoles', '12:30:00', '14:00:00'),
+(6, 3, 'Redes de Computo', 'Jueves', '08:00:00', '09:30:00'),
+(7, 3, 'Programación Web 1', 'Jueves', '11:00:00', '12:00:00'),
+(8, 3, 'Programación Web 2', 'Viernes', '09:30:00', '10:30:00'),
+(9, 3, 'Redes de Computo', 'Viernes', '12:30:00', '14:00:00');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `maestros`
 --
 
-DROP TABLE IF EXISTS `maestros`;
 CREATE TABLE `maestros` (
   `id_maestro` int(11) NOT NULL,
   `cubiculo` varchar(20) NOT NULL,
@@ -195,7 +204,7 @@ ALTER TABLE `maestros`
 -- AUTO_INCREMENT de la tabla `horarios`
 --
 ALTER TABLE `horarios`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `maestros`

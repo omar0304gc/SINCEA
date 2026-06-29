@@ -25,7 +25,7 @@ export const routes: Routes = [
 
   {
     path: '',
-    //canActivate: [autenticacionGuard],
+    canActivate: [autenticacionGuard],
     component: ContenedorPrincipal,
     children: [
       {
