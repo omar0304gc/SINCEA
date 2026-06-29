@@ -48,13 +48,19 @@ private apiUrl = 'http://localhost:3000/api/horarios';
   ];
 
   ngOnInit() {
+  
+  const idParam = this.route.snapshot.queryParamMap.get('profesorId');
 
-  const usuario = JSON.parse(localStorage.getItem('usuario')!);
-
-  if (usuario?.id_maestro) {
-    this.cargarHorario(usuario.id_maestro);
+  if (idParam) {
+    
+    this.cargarHorario(Number(idParam));
+  } else {
+  
+    const usuario = JSON.parse(localStorage.getItem('usuario')!);
+    if (usuario?.id_maestro) {
+      this.cargarHorario(usuario.id_maestro);
+    }
   }
-
 }
 
 cargarHorario(idProfesor: number) {
@@ -65,7 +71,6 @@ cargarHorario(idProfesor: number) {
 
       if (respuesta.status !== 'success') return;
 
-      // Limpiar horario
       this.dias.forEach(d => d.bloques = []);
 
       respuesta.data.forEach((clase: any) => {

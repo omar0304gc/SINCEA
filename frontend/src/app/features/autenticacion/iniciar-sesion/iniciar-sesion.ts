@@ -49,7 +49,6 @@ export class IniciarSesion {
 
           localStorage.setItem('userName', respuesta.alumno.nombre);
 
-          // ESTA LÍNEA FALTABA
           localStorage.setItem('usuario', JSON.stringify(respuesta.alumno));
 
           this.router.navigate(['/inicio']);

@@ -43,7 +43,12 @@
             draggable="true"
             (dragstart)="onDragStart($event, dia, slotOcupado(dia, i)!, i)"
             (dragend)="onDragEnd()"
-            [class.horario__bloque--arrastrando]="bloqueArrastrado?.id === slotOcupado(dia, i)?.id">
+            [class.horario__bloque--arrastrando]="bloqueArrastrado?.id === slotOcupado(dia, i)?.id"
+            [ngStyle]="{
+              'height': 'calc(' + ((slotOcupado(dia, i)?.duracion || 1) * 100) + '% + ' + (((slotOcupado(dia, i)?.duracion || 1) - 1) * 2) + 'px)',
+              'z-index': '10'
+            }">
+
             <span class="horario__bloque-materia">
               {{ slotOcupado(dia, i)?.materia }}
             </span>

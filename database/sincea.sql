@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2026 a las 02:32:23
+-- Tiempo de generación: 29-06-2026 a las 06:15:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sincea`
 --
+CREATE DATABASE IF NOT EXISTS `sincea` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `sincea`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `alumnos`
 --
 
+DROP TABLE IF EXISTS `alumnos`;
 CREATE TABLE `alumnos` (
   `matricula` varchar(15) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -49,6 +52,7 @@ INSERT INTO `alumnos` (`matricula`, `nombre`, `curp`, `carrera`) VALUES
 -- Estructura de tabla para la tabla `edificios`
 --
 
+DROP TABLE IF EXISTS `edificios`;
 CREATE TABLE `edificios` (
   `id` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -69,7 +73,7 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`) VALUES
 ('6', 'Cubículos de Profesores', 'Oficinas de atención a alumnos', 'Cubículos de profesores'),
 ('7', 'Edificio de Posgrado', 'Aulas y edificios de posgrado', 'Edificio de posgrado'),
 ('8', 'Instituto de la Energía', 'Laboratorios de energía renovables', 'Instituto de la energía'),
-('9', 'Aulas de Diseño', 'Aulas de diseño en donde se diseñan', 'Aulas de diseño'),
+('Aulas-de-disenio', 'Aulas de Diseño', 'Aulas de diseño', 'Aulas de diseño'),
 ('Aulas-modulo-1', 'Aulas Módulo 1', 'Aulas primer módulo', ''),
 ('Aulas-modulo-2', 'Aulas Módulo 2', 'Aulas segundo módulo', ''),
 ('Aulas-modulo-3', 'Aulas Módulo 3', 'Aulas tercer módulo', ''),
@@ -87,24 +91,24 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`) VALUES
 ('Laboratorio-de-electronica', 'Laboratorio de Electrónica', 'Laboratorio de Electrónica', ''),
 ('Laboratorio-de-energia', 'Laboratorio de Energía', 'Laboratorio de Energía', ''),
 ('Laboratorio-de-ingenieria-quimica', 'Laboratorio de Ingeniería Química', 'Laboratorio de Ingeniería Química', ''),
-('Laboratorio-de-quimica-organica', 'Laboratorio de Química Orgánica', '', ''),
-('Modulo-de-aulas-1', 'Módulo de Aulas 1', '', ''),
-('Modulo-de-aulas-2', 'Módulo de Aulas 2', '', ''),
-('path33', 'Recursos Materiales', '', ''),
-('path38', 'Sistema Fotovoltaico (Ref 2)', '', ''),
-('path39', 'Sistema Fotovoltaico (Ref 3)', '', ''),
-('path40', 'Sistema Fotovoltaico (Ref 4)', '', ''),
-('path41', 'Cancha de Basquetbol', '', ''),
-('path42', 'Terreno de la Cancha', '', ''),
-('Portico-de-acceso', 'Pórtico de Acceso', '', ''),
+('Laboratorio-de-quimica-organica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica'),
+('Modulo-de-aulas-1', 'Módulo de Aulas 1', 'Módulo de Aulas 1', 'Módulo de Aulas 1'),
+('Modulo-de-aulas-2', 'Módulo de Aulas 2', 'Módulo de Aulas 2', 'Módulo de Aulas 2'),
+('path33', 'Recursos Materiales', 'Recursos Materiales', 'Recursos Materiales'),
+('path38', 'Sistema Fotovoltaico (Ref 2)', 'Sistema Fotovoltaico (Ref 2)', 'Sistema Fotovoltaico (Ref 2)'),
+('path39', 'Sistema Fotovoltaico (Ref 3)', 'Sistema Fotovoltaico (Ref 3)', 'Sistema Fotovoltaico (Ref 3)'),
+('path40', 'Sistema Fotovoltaico (Ref 4)', 'Sistema Fotovoltaico (Ref 4)', 'Sistema Fotovoltaico (Ref 4)'),
+('path41', 'Cancha de Basquetbol', 'Cancha de Basquetbol', 'Cancha de Basquetbol'),
+('path42', 'Terreno de la Cancha', 'Terreno de la Cancha', 'Terreno de la Cancha'),
+('Portico-de-acceso', 'Pórtico de Acceso', 'Pórtico de Acceso', 'Pórtico de Acceso'),
 ('Rectoría', 'Rectoría', 'Oficinas administrativas principales', 'Rectoría'),
-('Sala-de-autoacceso', 'Sala de Autoacceso', '', ''),
+('Sala-de-autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso'),
 ('Salas-de-Cómputo', 'Salas de Cómputo', 'Salas equipadas con computadoras', 'Salas de Cómputo'),
-('Sanitarios-generales', 'Sanitarios Generales', '', ''),
-('Sistema-fotovoltaico', 'Sistema Fotovoltaico', '', ''),
-('Talleres-de-disenio', 'Talleres de Diseño', '', ''),
-('Vicerrectoria-academica', 'Vicerrectoría Académica', '', ''),
-('Vicerrectoria-administrativa', 'Vicerrectoría Administrativa', '', '');
+('Sanitarios-generales', 'Sanitarios Generales', 'Sanitarios Generales', 'Sanitarios Generales'),
+('Sistema-fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico'),
+('Talleres-de-disenio', 'Talleres de Diseño', 'Talleres de Diseño', 'Talleres de Diseño'),
+('Vicerrectoria-academica', 'Vicerrectoría Académica', 'Vicerrectoría Académica', 'Vicerrectoría Académica'),
+('Vicerrectoria-administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa');
 
 -- --------------------------------------------------------
 
@@ -112,6 +116,7 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`) VALUES
 -- Estructura de tabla para la tabla `horarios`
 --
 
+DROP TABLE IF EXISTS `horarios`;
 CREATE TABLE `horarios` (
   `id_horario` int(11) NOT NULL,
   `id_maestro` int(11) NOT NULL,
@@ -130,11 +135,11 @@ INSERT INTO `horarios` (`id_horario`, `id_maestro`, `materia`, `dia`, `hora_inic
 (2, 3, 'Programación Web 1', 'Martes', '08:00:00', '10:00:00'),
 (3, 3, 'Programación Web 2', 'Miércoles', '08:00:00', '10:00:00'),
 (4, 3, 'Programación Web 1', 'Miércoles', '10:30:00', '12:00:00'),
-(5, 3, 'Redes de Computo', 'Miércoles', '12:30:00', '14:00:00'),
-(6, 3, 'Redes de Computo', 'Jueves', '08:00:00', '09:30:00'),
+(5, 3, 'Redes de Cómputo', 'Miércoles', '12:30:00', '14:00:00'),
+(6, 3, 'Redes de Cómputo', 'Jueves', '08:00:00', '09:30:00'),
 (7, 3, 'Programación Web 1', 'Jueves', '11:00:00', '12:00:00'),
 (8, 3, 'Programación Web 2', 'Viernes', '09:30:00', '10:30:00'),
-(9, 3, 'Redes de Computo', 'Viernes', '12:30:00', '14:00:00');
+(9, 3, 'Redes de Cómputo', 'Viernes', '12:30:00', '14:00:00');
 
 -- --------------------------------------------------------
 
@@ -142,6 +147,7 @@ INSERT INTO `horarios` (`id_horario`, `id_maestro`, `materia`, `dia`, `hora_inic
 -- Estructura de tabla para la tabla `maestros`
 --
 
+DROP TABLE IF EXISTS `maestros`;
 CREATE TABLE `maestros` (
   `id_maestro` int(11) NOT NULL,
   `cubiculo` varchar(20) NOT NULL,
@@ -158,8 +164,8 @@ CREATE TABLE `maestros` (
 --
 
 INSERT INTO `maestros` (`id_maestro`, `cubiculo`, `edificio`, `departamento`, `contacto`, `usuario`, `contrasena`, `nombre`) VALUES
-(1, '21', 'Edificio de profesores', 'Ing. Computación', 'omarng@bianni.unistmo.edu.mx', 'Omar Nieva García', 'ong', 'Omar N. García'),
-(2, '18', 'Edificio de Profesores', 'Ing. Computación', 'jjap@sandunga.unistmo.edu.mx', 'José J. Arellano Pimentel', 'jjap', 'José de Jesús Arellano Pimentel'),
+(1, '21', 'Edificio de profesores', 'Ing. Computación', 'omarng@bianni.unistmo.edu.mx', 'Omar N. García', 'ong', 'Omar N. García'),
+(2, '18', 'Edificio de Profesores', 'Ing. Computación', 'jjap@sandunga.unistmo.edu.mx', 'José J. Arellano Pimentel', 'jjap', 'José J. Arellano Pimentel'),
 (3, '20', 'Edificio de Profesores', 'Ing. Computación', 'thunder6321@gmail.com', 'José María Arellanes Moreno', 'jmam', 'José María Arellanes Moreno'),
 (4, '20', 'Edificio de Profesores', 'Ing. Computación', 'gtoledo@sandunga.unistmo.edu.mx', 'Guadalupe Toledo Toledo', 'gtt', 'Guadalupe Toledo Toledo'),
 (5, '15', 'Edificio de Profesores', 'Ing. Computación', 'dpachecob@bianni.unistmo.edu.mx', 'Daniel Pacheco Bautista', 'dpb', 'Daniel Pacheco Bautista'),
@@ -204,7 +210,7 @@ ALTER TABLE `maestros`
 -- AUTO_INCREMENT de la tabla `horarios`
 --
 ALTER TABLE `horarios`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `maestros`
