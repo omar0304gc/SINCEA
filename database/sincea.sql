@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2026 a las 02:04:08
+-- Tiempo de generación: 01-07-2026 a las 00:31:49
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -84,7 +84,7 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`, `imagen`) V
 ('Cafetería', 'Cafetería', 'Espacio para adquirir y disgustar alimentos', 'Cafetería', 'http://localhost:3000/edificios/Cafetería.jpg'),
 ('Casa-de-rector', 'Casa del Rector', 'Casa del rector', '', NULL),
 ('Caseta-de-inversores', 'Caseta de Inversores', 'Caseta de inversores', '', NULL),
-('Cecyte', 'CECYTE', 'CECYTE', '', NULL),
+('Cecyte', 'CECYTE', 'CECYTE', '', 'http://localhost:3000/edificios/CECYTE.jpg'),
 ('Centro-de-idiomas', 'Centro de Idiomas', 'Centro de idiomas', '', 'http://localhost:3000/edificios/CentrodeIdiomas.jpg'),
 ('Departamento-de-profesores', 'Departamento de Profesores', 'Departamento de profesores', '', 'http://localhost:3000/edificios/EdificiosdeProfesores.jpg'),
 ('Edificio-de-ingenieria-industrial', 'Edificio de Ingeniería Industrial', 'Edificio de Ingeniería Industrial', '', NULL),
@@ -92,7 +92,7 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`, `imagen`) V
 ('Laboratorio de química orgánica', 'Laboratorio de química orgánica', 'Laboratorio para estudiantes de Ing. Química', 'Laboratorio de química orgánica', 'http://localhost:3000/edificios/LaboratoriodeQuímicaOrgánica.jpg'),
 ('Laboratorio-de-electronica', 'Laboratorio de Electrónica', 'Laboratorio de Electrónica', '', 'http://localhost:3000/edificios/LaboratoriodeElectrónica.jpg'),
 ('Laboratorio-de-energia', 'Laboratorio de Energía', 'Laboratorio de Energía', '', NULL),
-('Laboratorio-de-ingenieria-quimica', 'Laboratorio de Ingeniería Química', 'Laboratorio de Ingeniería Química', '', NULL),
+('Laboratorio-de-ingenieria-quimica', 'Laboratorio de Ingeniería Química', 'Laboratorio de Ingeniería Química', '', 'http://localhost:3000/edificios/LaboratoriodeQuímica.jpg'),
 ('Laboratorio-de-quimica-organica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica', NULL),
 ('Modulo de aulas-2', 'Módulo de Aulas 2', 'Módulo de Aulas 2', 'Módulo de Aulas 2', 'http://localhost:3000/edificios/MódulodeAulas2.jpg'),
 ('Modulo-de-aulas-1', 'Módulo de Aulas 1', 'Módulo de Aulas 1', 'Módulo de Aulas 1', NULL),
@@ -106,7 +106,7 @@ INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`, `imagen`) V
 ('Rectoría', 'Rectoría', 'Oficinas administrativas principales', 'Rectoría', NULL),
 ('Sala de autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso', 'http://localhost:3000/edificios/SaladeAutoacceso.jpg'),
 ('Sanitarios-generales', 'Sanitarios Generales', 'Sanitarios Generales', 'Sanitarios Generales', 'http://localhost:3000/edificios/SanitariosGenerales.jpg'),
-('Sistema-fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', NULL),
+('Sistema-fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', 'http://localhost:3000/edificios/Sistemafoto.jpg'),
 ('Talleres-de-disenio', 'Talleres de Diseño', 'Talleres de Diseño', 'Talleres de Diseño', NULL),
 ('Vicerrectoria-academica', 'Vicerrectoría Académica', 'Vicerrectoría Académica', 'Vicerrectoría Académica', 'http://localhost:3000/edificios/VicerrectoríaAcadémica.jpg'),
 ('Vicerrectoria-administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa', NULL);
@@ -167,9 +167,9 @@ CREATE TABLE `maestros` (
 INSERT INTO `maestros` (`id_maestro`, `cubiculo`, `edificio`, `departamento`, `contacto`, `usuario`, `contrasena`, `nombre`) VALUES
 (1, '21', 'Edificio de profesores', 'Ing. Computación', 'omarng@bianni.unistmo.edu.mx', 'Omar N. García', 'ong', 'Omar N. García'),
 (2, '18', 'Edificio de Profesores', 'Ing. Computación', 'jjap@sandunga.unistmo.edu.mx', 'José J. Arellano Pimentel', 'jjap', 'José J. Arellano Pimentel'),
-(3, '20', 'Edificio de Profesores', 'Ing. Computación', 'thunder6321@gmail.com', 'José María Arellanes Moreno', 'jmam', 'José María Arellanes Moreno'),
+(3, '20', 'Edificio de Profesores', 'Ing. Computación', 'jose.arellanes.moreno@gmail.com', 'José María Arellanes Moreno', 'jmam', 'José María Arellanes Moreno'),
 (4, '20', 'Edificio de Profesores', 'Ing. Computación', 'gtoledo@sandunga.unistmo.edu.mx', 'Guadalupe Toledo Toledo', 'gtt', 'Guadalupe Toledo Toledo'),
-(5, '15', 'Edificio de Profesores', 'Ing. Computación', 'dpachecob@bianni.unistmo.edu.mx', 'Daniel Pacheco Bautista', 'dpb', 'Daniel Pacheco Bautista'),
+(5, '15', 'Edificio de Profesores', 'Ing. Computación', 'dpachecob@bianni.unistmo.edu.mx', 'Daniel Pacheco Bautista', 'dpb', 'Daniel Pacheco'),
 (6, '22', 'Edificio de Profesores', 'Ing. Computación', 'sergio2x@hotmail.com', 'Sergio Juarez Vázques', 'sjv', 'Sergio Juarez Vázques');
 
 --
