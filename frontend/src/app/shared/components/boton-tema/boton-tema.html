@@ -1,7 +1,8 @@
 <button 
+  type="button"
   class="boton-tema" 
   (click)="alternar()"
-  [title]="temaService.estaOscuro() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'">
+  [title]="temaService.estaOscuro() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'" title="Cambiar modo">
   
   <app-icono 
     [nombre]="temaService.estaOscuro() ? 'sol' : 'luna'"

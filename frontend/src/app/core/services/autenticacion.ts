@@ -15,7 +15,6 @@ export class AutenticacionService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // Iniciar sesión
   iniciarSesion(matricula: string, contrasena: string): Observable<any> {
     return this.http.post(`${this.urlBase}/auth/login`, {
       matricula,

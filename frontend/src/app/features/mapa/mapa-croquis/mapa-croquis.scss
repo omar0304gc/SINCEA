@@ -41,7 +41,7 @@
     pointer-events: none;
   }
 
-  // Botones zoom
+
   &__controles {
     position: absolute;
     bottom: 2rem;
@@ -69,7 +69,7 @@
     &:hover { opacity: 0.85; }
   }
 
-  // Botón alternar
+
   &__btn-alternar {
     position: absolute;
     bottom: 2rem;
@@ -93,7 +93,7 @@
     &:hover { opacity: 0.85; }
   }
 
-  // Info card
+
   &__info {
     position: absolute;
     bottom: 2rem;
@@ -133,7 +133,7 @@
     flex-shrink: 0;
   }
 
-  // Dentro de .mapa
+  
 .edificio {
   cursor: pointer;
   transition: fill 0.2s ease;

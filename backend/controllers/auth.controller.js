@@ -28,7 +28,6 @@ const login = async (req, res) => {
         }
 
       
-        //const queryMaestro = 'SELECT nombre, contrasena FROM maestros WHERE nombre = ? AND contrasena = ? LIMIT 1';
         const queryMaestro = `
         SELECT
         id_maestro,

@@ -39,50 +39,6 @@ export class MapaCroquis {
   scrollLeft: number = 0;
   scrollTop: number = 0;
 
-  /*nombreEdificios: { [key: string]: string } = {
-    'Cecyte': 'CECYTE',
-    'Aulas-de-disenio': 'Aulas de Diseño',
-    'Aulas-modulo-1': 'Aulas Módulo 1',
-    'Aulas-modulo-2': 'Aulas Módulo 2',
-    'Aulas-modulo-3': 'Aulas Módulo 3',
-    'Aulas-modulo-4': 'Aulas Módulo 4',
-    'Aulas-modulo-5': 'Aulas Módulo 5',
-    'Aulas-modulo-6': 'Aulas Módulo 6',
-    'Auditorio': 'Auditorio',
-    'Biblioteca': 'Biblioteca',
-    'Casa-de-rector': 'Casa del Rector',
-    'Cubiculos-de-profesores': 'Cubículos de Profesores',
-    'Centro-de-idiomas': 'Centro de Idiomas',
-    'Departamento-de-profesores': 'Departamento de Profesores',
-    'Edificio-de-ingenieria-industrial': 'Edificio de Ingeniería Industrial',
-    'Edificio-de-posgrado': 'Edificio de Posgrado',
-    'Estatua': 'Estatua',
-    'Instituto-de-energia': 'Instituto de Energía',
-    'Laboratorio-de-electronica': 'Laboratorio de Electrónica',
-    'Laboratorio-de-energia': 'Laboratorio de Energía',
-    'Laboratorio-de-ingenieria-quimica': 'Laboratorio de Ingeniería Química',
-    'Laboratorio-de-quimica': 'Laboratorio de Química',
-    'Laboratorio-de-quimica-organica': 'Laboratorio de Química Orgánica',
-    'Modulo-de-aulas-1': 'Módulo de Aulas 1',
-    'Modulo-de-aulas-2': 'Módulo de Aulas 2',
-    'Portico-de-acceso': 'Pórtico de Acceso',
-    'Rectoria': 'Rectoría',
-    'Sala-de-autoacceso': 'Sala de Autoacceso',
-    'Salas-de-computo': 'Salas de Cómputo',
-    'Sanitarios-generales': 'Sanitarios Generales',
-    'Talleres-de-disenio': 'Talleres de Diseño',
-    'Vicerrectoria-academica': 'Vicerrectoría Académica',
-    'Vicerrectoria-administrativa': 'Vicerrectoría Administrativa',
-    'Caseta-de-inversores': 'Caseta de Inversores',
-    'Sistema-fotovoltaico': 'Sistema Fotovoltaico',
-    'path33': 'Recursos Materiales',
-    'path38': 'Sistema Fotovoltaico',
-    'path39': 'Sistema Fotovoltaico',
-    'path40': 'Sistema Fotovoltaico',
-    'path41': 'Cancha de Basquetbol',
-    'path42': 'Terreno de la Cancha',
-  };*/
-
   calcularEscalaMinima(): number {
     const contenedor = this.contenedorRef?.nativeElement;
     const wrapper = this.svgWrapperRef?.nativeElement;
