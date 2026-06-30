@@ -7,6 +7,7 @@ const PORT = 3000;
 
 app.use(cors()); 
 app.use(express.json()); 
+app.use(express.static('public'));
 
 app.get('/api/status', (req, res) => {
     res.json({ status: 'success', message: 'Servidor de SINCEA corriendo perfectamente' });

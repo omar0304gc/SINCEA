@@ -4,7 +4,7 @@ const Edificio = {
 
     obtenerTodos: async () => {
         try {
-            const [rows] = await db.execute('SELECT id, nombre, descripcion, ubicacion FROM edificios');
+            const [rows] = await db.execute('SELECT id, nombre, descripcion, ubicacion, imagen FROM edificios');
             return rows;
         } catch (error) {
             throw error;

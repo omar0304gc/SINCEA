@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2026 a las 06:15:50
+-- Tiempo de generación: 30-06-2026 a las 02:04:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -57,58 +57,59 @@ CREATE TABLE `edificios` (
   `id` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
-  `ubicacion` varchar(100) DEFAULT NULL
+  `ubicacion` varchar(100) DEFAULT NULL,
+  `imagen` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `edificios`
 --
 
-INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`) VALUES
-('1', 'Biblioteca', 'Acervo bibliográfico y sala de lectura.', 'biblioteca'),
-('2', 'Auditorio', 'Espacio para eventos y conferencias', 'Auditorio'),
-('3', 'Rectoria', 'Rectoria académica', 'Rectoria'),
-('4', 'Laboratorio de Química', 'Laboratorio de prácticas de química', 'Laboratorio de Química'),
-('5', 'Salas de Cómputo', 'Salas de cómputo 1 y 2', 'Salas de cómputo'),
-('6', 'Cubículos de Profesores', 'Oficinas de atención a alumnos', 'Cubículos de profesores'),
-('7', 'Edificio de Posgrado', 'Aulas y edificios de posgrado', 'Edificio de posgrado'),
-('8', 'Instituto de la Energía', 'Laboratorios de energía renovables', 'Instituto de la energía'),
-('Aulas-de-disenio', 'Aulas de Diseño', 'Aulas de diseño', 'Aulas de diseño'),
-('Aulas-modulo-1', 'Aulas Módulo 1', 'Aulas primer módulo', ''),
-('Aulas-modulo-2', 'Aulas Módulo 2', 'Aulas segundo módulo', ''),
-('Aulas-modulo-3', 'Aulas Módulo 3', 'Aulas tercer módulo', ''),
-('Aulas-modulo-4', 'Aulas Módulo 4', 'Aulas cuarto módulo', ''),
-('Aulas-modulo-5', 'Aulas Módulo 5', 'Aulas quinto módulo', ''),
-('Aulas-modulo-6', 'Aulas Módulo 6', 'Aulas sexto módulo', ''),
-('Casa-de-rector', 'Casa del Rector', 'Casa del rector', ''),
-('Caseta-de-inversores', 'Caseta de Inversores', 'Caseta de inversores', ''),
-('Cecyte', 'CECYTE', 'CECYTE', ''),
-('Centro-de-idiomas', 'Centro de Idiomas', 'Centro de idiomas', ''),
-('Departamento-de-profesores', 'Departamento de Profesores', 'Departamento de profesores', ''),
-('Edificio-de-ingenieria-industrial', 'Edificio de Ingeniería Industrial', 'Edificio de Ingeniería Industrial', ''),
-('Estatua', 'Estatua', 'Estatua Benito Juárez', ''),
-('Laboratorio de química orgánica', 'Laboratorio de química orgánica', 'Laboratorio para estudiantes de Ing. Química', 'Laboratorio de química orgánica'),
-('Laboratorio-de-electronica', 'Laboratorio de Electrónica', 'Laboratorio de Electrónica', ''),
-('Laboratorio-de-energia', 'Laboratorio de Energía', 'Laboratorio de Energía', ''),
-('Laboratorio-de-ingenieria-quimica', 'Laboratorio de Ingeniería Química', 'Laboratorio de Ingeniería Química', ''),
-('Laboratorio-de-quimica-organica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica'),
-('Modulo-de-aulas-1', 'Módulo de Aulas 1', 'Módulo de Aulas 1', 'Módulo de Aulas 1'),
-('Modulo-de-aulas-2', 'Módulo de Aulas 2', 'Módulo de Aulas 2', 'Módulo de Aulas 2'),
-('path33', 'Recursos Materiales', 'Recursos Materiales', 'Recursos Materiales'),
-('path38', 'Sistema Fotovoltaico (Ref 2)', 'Sistema Fotovoltaico (Ref 2)', 'Sistema Fotovoltaico (Ref 2)'),
-('path39', 'Sistema Fotovoltaico (Ref 3)', 'Sistema Fotovoltaico (Ref 3)', 'Sistema Fotovoltaico (Ref 3)'),
-('path40', 'Sistema Fotovoltaico (Ref 4)', 'Sistema Fotovoltaico (Ref 4)', 'Sistema Fotovoltaico (Ref 4)'),
-('path41', 'Cancha de Basquetbol', 'Cancha de Basquetbol', 'Cancha de Basquetbol'),
-('path42', 'Terreno de la Cancha', 'Terreno de la Cancha', 'Terreno de la Cancha'),
-('Portico-de-acceso', 'Pórtico de Acceso', 'Pórtico de Acceso', 'Pórtico de Acceso'),
-('Rectoría', 'Rectoría', 'Oficinas administrativas principales', 'Rectoría'),
-('Sala-de-autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso'),
-('Salas-de-Cómputo', 'Salas de Cómputo', 'Salas equipadas con computadoras', 'Salas de Cómputo'),
-('Sanitarios-generales', 'Sanitarios Generales', 'Sanitarios Generales', 'Sanitarios Generales'),
-('Sistema-fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico'),
-('Talleres-de-disenio', 'Talleres de Diseño', 'Talleres de Diseño', 'Talleres de Diseño'),
-('Vicerrectoria-academica', 'Vicerrectoría Académica', 'Vicerrectoría Académica', 'Vicerrectoría Académica'),
-('Vicerrectoria-administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa');
+INSERT INTO `edificios` (`id`, `nombre`, `descripcion`, `ubicacion`, `imagen`) VALUES
+('1', 'Biblioteca', 'Acervo bibliográfico y sala de lectura.', 'biblioteca', 'http://localhost:3000/edificios/Biblioteca.jpg'),
+('2', 'Auditorio', 'Espacio para eventos y conferencias', 'Auditorio', 'http://localhost:3000/edificios/Auditorio.jpg'),
+('3', 'Rectoria', 'Rectoria académica', 'Rectoria', NULL),
+('4', 'Laboratorio de Química', 'Laboratorio de prácticas de química', 'Laboratorio de Química', NULL),
+('5', 'Salas de Cómputo', 'Salas de cómputo 1 y 2', 'Salas de cómputo', 'http://localhost:3000/edificios/SalasdeCómputo.jpg'),
+('6', 'Cubículos de Profesores', 'Oficinas de atención a alumnos', 'Cubículos de profesores', NULL),
+('7', 'Edificio de Posgrado', 'Aulas y edificios de posgrado', 'Edificio de posgrado', NULL),
+('8', 'Instituto de la Energía', 'Laboratorios de energía renovables', 'Instituto de la energía', NULL),
+('Aulas-de-disenio', 'Aulas de Diseño', 'Aulas de diseño', 'Aulas de diseño', NULL),
+('Aulas-modulo-1', 'Aulas Módulo 1', 'Aulas primer módulo', '', 'http://localhost:3000/edificios/AulasMódulo1.jpg'),
+('Aulas-modulo-2', 'Aulas Módulo 2', 'Aulas segundo módulo', '', NULL),
+('Aulas-modulo-3', 'Aulas Módulo 3', 'Aulas tercer módulo', '', NULL),
+('Aulas-modulo-4', 'Aulas Módulo 4', 'Aulas cuarto módulo', '', NULL),
+('Aulas-modulo-5', 'Aulas Módulo 5', 'Aulas quinto módulo', '', NULL),
+('Aulas-modulo-6', 'Aulas Módulo 6', 'Aulas sexto módulo', '', NULL),
+('Cafetería', 'Cafetería', 'Espacio para adquirir y disgustar alimentos', 'Cafetería', 'http://localhost:3000/edificios/Cafetería.jpg'),
+('Casa-de-rector', 'Casa del Rector', 'Casa del rector', '', NULL),
+('Caseta-de-inversores', 'Caseta de Inversores', 'Caseta de inversores', '', NULL),
+('Cecyte', 'CECYTE', 'CECYTE', '', NULL),
+('Centro-de-idiomas', 'Centro de Idiomas', 'Centro de idiomas', '', 'http://localhost:3000/edificios/CentrodeIdiomas.jpg'),
+('Departamento-de-profesores', 'Departamento de Profesores', 'Departamento de profesores', '', 'http://localhost:3000/edificios/EdificiosdeProfesores.jpg'),
+('Edificio-de-ingenieria-industrial', 'Edificio de Ingeniería Industrial', 'Edificio de Ingeniería Industrial', '', NULL),
+('Estatua', 'Estatua', 'Estatua Benito Juárez', '', 'http://localhost:3000/edificios/Estatua.jpg'),
+('Laboratorio de química orgánica', 'Laboratorio de química orgánica', 'Laboratorio para estudiantes de Ing. Química', 'Laboratorio de química orgánica', 'http://localhost:3000/edificios/LaboratoriodeQuímicaOrgánica.jpg'),
+('Laboratorio-de-electronica', 'Laboratorio de Electrónica', 'Laboratorio de Electrónica', '', 'http://localhost:3000/edificios/LaboratoriodeElectrónica.jpg'),
+('Laboratorio-de-energia', 'Laboratorio de Energía', 'Laboratorio de Energía', '', NULL),
+('Laboratorio-de-ingenieria-quimica', 'Laboratorio de Ingeniería Química', 'Laboratorio de Ingeniería Química', '', NULL),
+('Laboratorio-de-quimica-organica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica', 'Laboratorio de Química Orgánica', NULL),
+('Modulo de aulas-2', 'Módulo de Aulas 2', 'Módulo de Aulas 2', 'Módulo de Aulas 2', 'http://localhost:3000/edificios/MódulodeAulas2.jpg'),
+('Modulo-de-aulas-1', 'Módulo de Aulas 1', 'Módulo de Aulas 1', 'Módulo de Aulas 1', NULL),
+('path33', 'Recursos Materiales', 'Recursos Materiales', 'Recursos Materiales', NULL),
+('path38', 'Sistema Fotovoltaico (Ref 2)', 'Sistema Fotovoltaico (Ref 2)', 'Sistema Fotovoltaico (Ref 2)', NULL),
+('path39', 'Sistema Fotovoltaico (Ref 3)', 'Sistema Fotovoltaico (Ref 3)', 'Sistema Fotovoltaico (Ref 3)', NULL),
+('path40', 'Sistema Fotovoltaico (Ref 4)', 'Sistema Fotovoltaico (Ref 4)', 'Sistema Fotovoltaico (Ref 4)', NULL),
+('path41', 'Cancha de Basquetbol', 'Cancha de Basquetbol', 'Cancha de Basquetbol', NULL),
+('path42', 'Terreno de la Cancha', 'Terreno de la Cancha', 'Terreno de la Cancha', NULL),
+('Pórtico de acceso', 'Pórtico de Acceso', 'Pórtico de Acceso', 'Pórtico de Acceso', 'http://localhost:3000/edificios/PórticodeAcceso.jpg'),
+('Rectoría', 'Rectoría', 'Oficinas administrativas principales', 'Rectoría', NULL),
+('Sala de autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso', 'Sala de Autoacceso', 'http://localhost:3000/edificios/SaladeAutoacceso.jpg'),
+('Sanitarios-generales', 'Sanitarios Generales', 'Sanitarios Generales', 'Sanitarios Generales', 'http://localhost:3000/edificios/SanitariosGenerales.jpg'),
+('Sistema-fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', 'Sistema Fotovoltaico', NULL),
+('Talleres-de-disenio', 'Talleres de Diseño', 'Talleres de Diseño', 'Talleres de Diseño', NULL),
+('Vicerrectoria-academica', 'Vicerrectoría Académica', 'Vicerrectoría Académica', 'Vicerrectoría Académica', 'http://localhost:3000/edificios/VicerrectoríaAcadémica.jpg'),
+('Vicerrectoria-administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa', 'Vicerrectoría Administrativa', NULL);
 
 -- --------------------------------------------------------
 
